@@ -1,13 +1,6 @@
-const express = require('express');
-const app = express();
-const port = 5000;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MyApp from './MyApp';
+import './index.css';
 
-app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});      
+ReactDOM.render(<MyApp />, document.getElementById('root'));
