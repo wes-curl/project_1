@@ -2,8 +2,9 @@ import React from 'react';
 
 function SearchBar(props){
     return(
-        <div class="searchBar">
-            <p>This is a test</p>
+        <div className="searchBar">
+            <div className="dropdown"></div>
+            <div className="fillIn"></div>
         </div>
     );
 }
