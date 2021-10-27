@@ -7,3 +7,5 @@ class Review{
         this.course = course;
     }
 }
+
+export default Review;

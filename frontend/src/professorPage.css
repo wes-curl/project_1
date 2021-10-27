@@ -1,0 +1,13 @@
+.courseTermYear{
+    background-color: #2A573C;
+    width:fit-content;
+    display: inline-block;
+}
+
+.rating{
+    background-color: #F8C84D;
+    width: 30px;
+    display: inline-block;
+    margin-left: 20px;
+    text-align: center;
+}
