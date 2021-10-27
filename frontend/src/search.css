@@ -1,49 +1,47 @@
-body{
-    width: 1440px;
-    height: 1024px;
-    background: #2A573C;
+body {
+  width: 1440px;
+  height: 1024px;
+  background: #2a573c;
 }
 
-.dropdown{
-    position: absolute;
-    width: 569px;
-    height: 89px;
-    left: 364px;
-    top: 0px;
-    background: #FFFFFF;
+.dropdown {
+  position: absolute;
+  width: 569px;
+  height: 89px;
+  left: 364px;
+  top: 0px;
+  background: #ffffff;
 }
 
-.searchBar{
-    position: absolute;
-    width: 933px;
-    height: 89px;
-    left: 134px;
-    top: 423px;
-    
+.searchBar {
+  position: absolute;
+  width: 933px;
+  height: 89px;
+  left: 134px;
+  top: 423px;
 }
 
-.fillIn{
-    position: absolute;
-    width: 319px;
-    height: 89px;
-    left: 0px;
-    top: 0px;
-    background: #FFFFFF;
+.fillIn {
+  position: absolute;
+  width: 319px;
+  height: 89px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
 }
 
-.polyLogo{
-    position: absolute;
-    width: 332px;
-    height: 188px;
-    left: 1017px;
-    top: 70px;
+.polyLogo {
+  position: absolute;
+  width: 332px;
+  height: 188px;
+  left: 1017px;
+  top: 70px;
 }
 
-.calpolynight{
-    position: absolute;
-    width: 1025px;
-    height: 640px;
-    left: 88px;
-    top: 164px;
+.calpolynight {
+  position: absolute;
+  width: 1025px;
+  height: 640px;
+  left: 88px;
+  top: 164px;
 }
-    
