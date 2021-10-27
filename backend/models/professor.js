@@ -1,17 +1,24 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const professorSchema = new Mongoose.Schema({
-  name: String,
-  classes: [{
-    class: String,
-    reviews: [{
-      rating: Number,
-      comment: String
-    }]
-  }],
-  rating: Number,
-  count: Number
-}, {collection: TBD})
+const professorSchema = new Mongoose.Schema(
+  {
+    name: String,
+    classes: [
+      {
+        class: String,
+        reviews: [
+          {
+            rating: Number,
+            comment: String,
+          },
+        ],
+      },
+    ],
+    rating: Number,
+    count: Number,
+  },
+  { collection: TBD }
+);
 
-const prefessor = mongoose.model(TBD, professorSchema)
-module.exports = professor 
+const prefessor = mongoose.model(TBD, professorSchema);
+module.exports = professor;
