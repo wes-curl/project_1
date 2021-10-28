@@ -1,6 +1,6 @@
 .courseTermYear{
     background-color: #2A573C;
-    width:fit-content;
+    width: 400px;
     height: 55px;
     display: inline-block;
     font-size: 35px;
@@ -13,11 +13,12 @@
     background-color: #F8C84D;
     width: 90px;
     display: inline-block;
-    margin-left: 20px;
     text-align: center;
     height: 55px;
     font-size: 35px;
     line-height: 55px;
+    Position:absolute;
+    left: 420px;
 }
 
 .reviewText{
@@ -25,7 +26,6 @@
 }
 
 .reviewContainer{
-
 }
 
 .professorImage{
@@ -54,6 +54,7 @@
     font-family: 'Roboto', sans-serif;
     text-align: center;
     line-height: 140px;
+    letter-spacing: -15px;
 }   
 
 .professorCourses{

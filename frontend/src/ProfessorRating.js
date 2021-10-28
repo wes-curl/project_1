@@ -3,7 +3,7 @@ import React from 'react';
 function ProfessorRating(props){
     return(
         <div className="professorRating">
-            {props.review}
+            {props.review.toFixed(1)}
         </div>
     );
 }
