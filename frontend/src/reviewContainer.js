@@ -17,7 +17,7 @@ function ReviewContainer(props){
                 {review.rating}
             </div>
             
-            <p>{review.review}</p>
+            <p class='reviewText'>{review.review}</p>
         </div>
     );
 }

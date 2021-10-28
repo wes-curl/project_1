@@ -1,13 +1,72 @@
 .courseTermYear{
     background-color: #2A573C;
     width:fit-content;
+    height: 55px;
     display: inline-block;
+    font-size: 35px;
+    line-height: 55px;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .rating{
     background-color: #F8C84D;
-    width: 30px;
+    width: 90px;
     display: inline-block;
     margin-left: 20px;
     text-align: center;
+    height: 55px;
+    font-size: 35px;
+    line-height: 55px;
+}
+
+.reviewText{
+    font-size: 30px;
+}
+
+.reviewContainer{
+
+}
+
+.professorImage{
+    outline: 3px solid black;
+}
+
+.professorImageContainer{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.professorName{
+    background-color: #2A573C;
+    font-family: 'Roboto', sans-serif;
+    font-size: 65px;
+    width: fit-content;
+    line-height: 90px;
+    height: 90px;
+}
+
+.professorRating{
+    background-color: #2A573C;
+    width: 190px;
+    height: 140px;
+    font-size: 140px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    line-height: 140px;
+}   
+
+.professorCourses{
+    background-color: #F8C84D;
+    font-family: 'Roboto', sans-serif;
+    width: fit-content;
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.dataHeader{
+    display: inline-block;
+    vertical-align: top;
 }
