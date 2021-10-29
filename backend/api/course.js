@@ -1,5 +1,5 @@
 const express = require('express');
-const course = require('../models/course-services')
+const courseServices = require('../models/course-services')
 const app = express.Router();
 
 app.get('/', (req, res) => {
@@ -16,7 +16,7 @@ app.get('/getProfessors', (req, res) => {
     res.send(course)
     
     // if class doens't exist, create new class and add this prof to that list
-    const professors = course.getProfessorsByCourse(course)
+    const professors = courseServices.getProfessorsByCourse(course)
     res.send(professors)
 })
 
