@@ -8,6 +8,7 @@ import Course from './Course';
 import "./professorPageScripts.js";
 
 function ProfessorPage(props){
+
     //temporary professor object:
     var testProfessor = new Professor("Bruno da Silva", "CSC", true);
     testProfessor.avg_rating = 4.0;
@@ -17,6 +18,7 @@ function ProfessorPage(props){
         new Course("CSC 357", null)
     ]
     testProfessor.courses = TPCourses;
+
     return(
         <react.Fragment>
             <ProfessorHeader professor={testProfessor}/>

@@ -11,5 +11,7 @@ function setup(){
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    setup();
+    if(document.getElementById("ratingValue") != null){
+        setup();
+    }
   })
