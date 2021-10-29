@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const professor = require('./professor');
 const professorModel = require('./professor');
 
 // input - prof object, new rating integer | {0 <= x <= 5}7
@@ -12,5 +13,21 @@ async function professorRatingUpdate(prof, newRating) {
     // const update = {avgRating : newAvg, numRatings: newNum}
     // await professor.findOneAndUpdate(filter, update);
 
-
+    return(newNum, newAvg);
 }
+
+// input: professor name; Output: professor object
+async function findProfByName(prof_name) {
+    return await professor.findOne({'name': prof_name});
+}
+
+// input: none; output: json array of all professors in container
+async function getAllProfessors() {
+    const lst = await professor.find();
+    console.log(lst)
+    return lst
+}
+
+exports.findProfByName = findProfByName;
+exports.professorRatingUpdate = professorRatingUpdate;
+exports.getAllProfessors = getAllProfessors;
