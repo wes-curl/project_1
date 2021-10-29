@@ -24,8 +24,10 @@ function searchBar(){
 }
 
 function inputSubmit(){
-  return(<input type="submit"> 
+  return(<div className="submitSearch">
+  <input type="submit"> 
   </input>
+  </div>
 
   );
 }
