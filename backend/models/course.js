@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const courseSchema = new Mongoose.Schema({
+const courseSchema = new mongoose.Schema({
   name: String,
   professors: [String]
-}, {collection: TBD})
+})
 
-const course = mongoose.model(TBD, courseSchema)
+const course = mongoose.model('courses', courseSchema)
 module.exports = course 
