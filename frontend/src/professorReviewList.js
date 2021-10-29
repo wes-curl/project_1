@@ -10,6 +10,8 @@ function ProfessorReviewList(props){
         new Review("Spring", 2021, "this is another test review", 4.0, "CSC 307"),
         new Review("Fall", 2021, "BLAGH BLAGH BLAGH", 3.0, "CSC 349")];
     
+    
+
     return(
         <div className="professorReviewList">
             {testReviews.map((review) => <ReviewContainer review={review} />)}
