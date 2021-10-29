@@ -3,5 +3,10 @@ import ReactDOM from "react-dom";
 //import './index.css';
 //import App from './App';
 import SearchPage from "./search";
+import ProfessorList from "./professorList.js";
 
-ReactDOM.render(<SearchPage />, document.getElementById("root"));
+const pagesToUse = [<ProfessorList />, <SearchPage />]
+var pageOn = 0;
+
+
+ReactDOM.render(pagesToUse[0], document.getElementById("root"));
