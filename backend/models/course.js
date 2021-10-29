@@ -5,5 +5,5 @@ const courseSchema = new mongoose.Schema({
   professors: [String]
 })
 
-const course = mongoose.model('courses', courseSchema)
+const course = mongoose.model("Courses", courseSchema)
 module.exports = course 
