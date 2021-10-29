@@ -58,7 +58,7 @@ class App extends React.Component{
                        <ProfessorList />
                     </Route>
                              
-                    <Route path='/professor'>
+                    <Route path='/professor/:id'>
                        <ProfessorPage/>
                     </Route>
                  </Switch>
