@@ -5,19 +5,26 @@ import ProfessorPage from "./professorPage";
 import Professor from "./Professor";
 import Review from "./Review";
 
+import {useState, useEffect} from 'react';
 import React from "react";
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-async function getProfessors(){
+
+function getProfessorsByName(name){
   try {
-     //const response = await axios.post('');
-     const response = [
-        new Professor("Bruno Da Silva", "CSC", true),
-        new Professor("Kurt Mammen", "CSC", false),
-        new Professor("Christopher Siu", "CSC", true),
-        new Professor("Farah Al Nakib", "HIST", true)
-    ];
+      //const response = await axios.post('');
+      const response = [
+         new Professor("Bruno Da Silva", "CSC", true),
+         new Professor("Kurt Mammen", "CSC", false),
+         new Professor("Christopher Siu", "CSC", true),
+         new Professor("Farah Al Nakib", "HIST", true)
+      ];
+      response[0].avg_rating = 5.0;
+      response[1].avg_rating = 1.0;
+      response[2].avg_rating = 4.0;
+      response[3].avg_rating = 3.0;
      return response;
   }
   catch (error) {
@@ -26,24 +33,65 @@ async function getProfessors(){
   }
 }
 
-async function getProfessor(){
-  try {
-     //const response = await axios.post('');
-     const response = new Professor("Bruno Da Silva", "CSC", true);
-     response.reviews = [new Review("Winter", 2015, "this is a test review", 4.0, "CSC 307"),
-     new Review("Fall", 2018, "... I have more things to sayyyyyy", 1.0, "CSC 321"),
-     new Review("Spring", 2021, "this is another test review", 4.0, "CSC 307"),
-     new Review("Fall", 2021, "BLAGH BLAGH BLAGH", 3.0, "CSC 349")];
-     
-     return response;
-  }
-  catch (error) {
-     console.log(error);
-     return false;
-  }
-}
+function getProfessorsByClass(className){
+   try {
+      const response = [
+         new Professor("Bruno Da Silva", "CSC", true),
+         new Professor("Kurt Mammen", "CSC", false),
+         new Professor("Christopher Siu", "CSC", true),
+         new Professor("Farah Al Nakib", "HIST", true)
+      ];
+      response[0].avg_rating = 5.0;
+      response[1].avg_rating = 1.0;
+      response[2].avg_rating = 4.0;
+      response[3].avg_rating = 3.0;
+      return response;
+   }
+   catch (error) {
+      console.log(error);
+      return false;
+   }
+ }
+
+function getProfessors(type, data){
+   var output;
+   if(type == "byClass"){
+      output = getProfessorsByClass(data);
+   } else {
+      output = getProfessorsByName(data);
+   }
+   return output;
+ }
+
+ async function getProfessor(id){
+   try {
+      //const response = await axios.post('');
+      const response = new Professor("Bruno Da Silva", "CSC", true);
+      return response;
+   }
+   catch (error) {
+      console.log(error);
+      return false;
+   }
+ }
+
+ async function postAReview(review){
+   try {
+      const response = "success";
+      return response;
+   }
+   catch (error) {
+      console.log(error);
+      return false;
+   }
+ }
 
 class App extends React.Component{
+   constructor(props) {
+      super(props);
+      this.state = { searchBy: "class", data: ""};
+   }
+   
   render() {
      return (
         <div>
@@ -55,11 +103,11 @@ class App extends React.Component{
                     </Route>
   
                     <Route path='/list'>
-                       <ProfessorList />
+                       <ProfessorList searchBy={this.state.searchBy} profs={getProfessors(this.state.searchBy, this.state.data)}/>
                     </Route>
                              
-                    <Route path='/professor/:id'>
-                       <ProfessorPage/>
+                    <Route path='/professor'>
+                       <ProfessorPage professor={getProfessor(this.state.data)} postAReview={postAReview}/>
                     </Route>
                  </Switch>
            </main>
