@@ -5,6 +5,8 @@ import react from 'react';
 import Professor from './Professor.js';
 import Course from './Course';
 
+import "./professorPageScripts.js";
+
 function ProfessorPage(props){
     //temporary professor object:
     var testProfessor = new Professor("Bruno da Silva", "CSC", true);
