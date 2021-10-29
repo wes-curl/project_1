@@ -6,18 +6,14 @@ app.get('/', (req, res) => {
     res.send("Hello, world")
 })
 
-app.get('/getProfessors', (req, res) => {
-    const course = req.body.course;
-    const rating = req.body.rating;
-    const term = req.body.term;
-    const year = req.body.year;
-    const comment = req.body.comment;
-
-    res.send(course)
-    
-    // if class doens't exist, create new class and add this prof to that list
-    const professors = courseServices.getProfessorsByCourse(course)
-    res.send(professors)
-})
+app.get('/:course', async (req, res) => {
+    const course = req.params['course'];
+    const result = await courseServices.findProfByCourse(course);
+    if (result === undefined || result === null)
+        res.status(404).send('Resource not found.');
+    else {
+        res.send({course_list: result});
+    }
+});
 
 module.exports = app;
