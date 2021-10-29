@@ -14,9 +14,9 @@ const professorSchema = new Mongoose.Schema({
     year: Number,
     comment: String
   }]
-}, {collection: TBD})
+})
 
 //will be adding picture later
 
-const prefessor = mongoose.model(TBD, professorSchema)
+const prefessor = mongoose.model("Professors", professorSchema)
 module.exports = professor 
