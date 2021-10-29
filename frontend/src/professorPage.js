@@ -29,7 +29,6 @@ function ProfessorPage(props){
 
     return(
         <react.Fragment>
-            
             <ProfessorHeader professor={testProfessor}/>
             <ProfessorReviewList />
         </react.Fragment>

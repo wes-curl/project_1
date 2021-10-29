@@ -1,9 +1,13 @@
 import React from "react";
 import Professor from "./Professor.js";
+import axios from 'axios';
 import ProfessorListElement from "./professorListElement.js";
 
 function ProfessorList(props) {
     var searchBy = "class"; //or professor
+
+    var professors = getProfessorsCall();
+
     var got = [
         new Professor("Bruno Da Silva", "CSC", true),
         new Professor("Kurt Mammen", "CSC", false),
@@ -27,6 +31,17 @@ function ProfessorList(props) {
             </form>
         </div>
     );
+}
+
+async function getProfessorsCall(){
+    try {
+        const response = await axios.get('http://localhost:5000/professors');
+        return response;
+     }
+     catch (error) {
+        console.log(error);
+        return false;
+     }
 }
 
 export default ProfessorList;
