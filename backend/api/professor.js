@@ -4,7 +4,6 @@ const courseServices = require('../models/course-services')
 const app = express.Router();
 
 app.post('/review', async (req, res) => {
-    console.log("new")
     const name = req.body.name;
     const course = req.body.course;
     const rating = req.body.rating;
