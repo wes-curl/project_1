@@ -12,24 +12,12 @@ import {
 import "./professorPageScripts.js";
 
 function ProfessorPage(props){
-
-    //temporary professor object:
-    var testProfessor = new Professor("Bruno da Silva", "CSC", true);
-    testProfessor.avg_rating = 4.0;
-    var TPCourses = [
-        new Course("CSC 307", null),
-        new Course("CSC 101", null),
-        new Course("CSC 357", null)
-    ]
-    testProfessor.courses = TPCourses;
-    
+   var professor = props.professor; 
     let { id } = useParams();
-
-    //var prof = getProfessorFrom(id);
 
     return(
         <react.Fragment>
-            <ProfessorHeader professor={testProfessor}/>
+            <ProfessorHeader professor={professor} postAReview={props.postAReview}/>
             <ProfessorReviewList />
         </react.Fragment>
     );

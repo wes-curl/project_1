@@ -7,6 +7,7 @@ import Review from "./Review";
 
 import {useState, useEffect} from 'react';
 import React from "react";
+import Component from 'react'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -19,12 +20,12 @@ function getProfessorsByName(name){
          new Professor("Bruno Da Silva", "CSC", true),
          new Professor("Kurt Mammen", "CSC", false),
          new Professor("Christopher Siu", "CSC", true),
-         new Professor("Farah Al Nakib", "HIST", true)
+         //new Professor("Farah Al Nakib", "HIST", true)
       ];
       response[0].avg_rating = 5.0;
       response[1].avg_rating = 1.0;
       response[2].avg_rating = 4.0;
-      response[3].avg_rating = 3.0;
+      //response[3].avg_rating = 3.0;
      return response;
   }
   catch (error) {
@@ -39,12 +40,12 @@ function getProfessorsByClass(className){
          new Professor("Bruno Da Silva", "CSC", true),
          new Professor("Kurt Mammen", "CSC", false),
          new Professor("Christopher Siu", "CSC", true),
-         new Professor("Farah Al Nakib", "HIST", true)
+         //new Professor("Farah Al Nakib", "HIST", true)
       ];
       response[0].avg_rating = 5.0;
       response[1].avg_rating = 1.0;
       response[2].avg_rating = 4.0;
-      response[3].avg_rating = 3.0;
+      //response[3].avg_rating = 3.0;
       return response;
    }
    catch (error) {
@@ -55,7 +56,7 @@ function getProfessorsByClass(className){
 
 function getProfessors(type, data){
    var output;
-   if(type == "byClass"){
+   if(type == "class"){
       output = getProfessorsByClass(data);
    } else {
       output = getProfessorsByName(data);
@@ -91,6 +92,12 @@ class App extends React.Component{
       super(props);
       this.state = { searchBy: "class", data: ""};
    }
+
+   handleListClick(professor){
+      console.log(this.state);
+      this.setState({ data: professor}, () => {console.log(this.state);});
+      
+   }
    
   render() {
      return (
@@ -103,11 +110,11 @@ class App extends React.Component{
                     </Route>
   
                     <Route path='/list'>
-                       <ProfessorList searchBy={this.state.searchBy} profs={getProfessors(this.state.searchBy, this.state.data)}/>
+                       <ProfessorList searchBy={this.state.searchBy} onClick={this.handleListClick.bind(this)} profs={getProfessors(this.state.searchBy, this.state.data)}/>
                     </Route>
                              
                     <Route path='/professor'>
-                       <ProfessorPage professor={getProfessor(this.state.data)} postAReview={postAReview}/>
+                       <ProfessorPage professor={this.state.data} postAReview={postAReview}/>
                     </Route>
                  </Switch>
            </main>

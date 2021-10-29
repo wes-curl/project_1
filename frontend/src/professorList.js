@@ -4,7 +4,6 @@ import ProfessorListElement from "./professorListElement.js";
 
 function ProfessorList(props) {
     var professors = props.profs;
-    console.log(professors);
     return (
         <div className="professorList">
             <div className="headerData">
@@ -12,7 +11,7 @@ function ProfessorList(props) {
                 <hr/>
             </div>
             <form>
-                {professors.map((prof) => <ProfessorListElement professor={prof} />)}
+                {professors.map((prof) => <ProfessorListElement onClick={props.onClick} professor={prof} />)}
             </form>
         </div>
     );

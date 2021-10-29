@@ -15,7 +15,7 @@ function SubmitRating(props){
                 <YearEntry />
                 <RatingEntry />
                 <ReviewEntry />
-                <SubmitButton />
+                <SubmitButton postAReview={props.postAReview}/>
             </form>
         </div>
     );

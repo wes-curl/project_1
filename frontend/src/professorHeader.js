@@ -7,7 +7,7 @@ function ProfessorHeader(props){
             <div className='professorImageContainer'>
                 <img className='professorImage' src="https://buildyourspechere.com/wp-content/uploads/2020/10/placeholder-image-person-jpg.jpg" alt={props.professor.name} width="500" height="500"/>    
             </div>
-            <DataHeader professor={props.professor}/>
+            <DataHeader professor={props.professor} postAReview={props.postAReview}/>
         </div>
     );
 }

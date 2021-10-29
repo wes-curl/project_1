@@ -10,7 +10,7 @@ function DataHeader(props){
             <ProfessorName name={props.professor.name}/>
             <ProfessorCourses courses={props.professor.courses}/>
             <ProfessorRating review={props.professor.avg_rating}/>
-            <SubmitRating professor={props.professor}/>
+            <SubmitRating professor={props.professor} postAReview={props.postAReview}/>
         </div>
     );
 }

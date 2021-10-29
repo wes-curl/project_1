@@ -1,5 +1,6 @@
 import React from "react";
 import Professor from "./Professor.js";
+import { Link } from 'react-router-dom';
 
 function ProfessorListElement(props) {
     
@@ -9,7 +10,9 @@ function ProfessorListElement(props) {
             —
             {props.professor.avg_rating}
             —
-            <input type="button" value="Submit" onClick={() => log(props.professor.name)} /> 
+            <Link to="/professor">
+            <input type="button" value="Submit" onClick={() => props.onClick(props.professor)} /> 
+            </Link>
             <hr/>
         </div>
     );
