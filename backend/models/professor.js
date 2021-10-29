@@ -18,5 +18,5 @@ const professorSchema = new mongoose.Schema({
 
 //will be adding picture later
 
-const prefessor = mongoose.model("Professors", professorSchema)
+const professor = mongoose.model("Professors", professorSchema)
 module.exports = professor 
