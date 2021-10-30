@@ -77,6 +77,9 @@ function getProfessors(type, data){
  }
 
  async function postAReview(review){
+    
+   console.log("review posted");
+   console.log(review);
    try {
       const response = "success";
       return response;
@@ -96,7 +99,6 @@ class App extends React.Component{
    handleListClick(professor){
       console.log(this.state);
       this.setState({ data: professor}, () => {console.log(this.state);});
-      
    }
    
   render() {

@@ -8,7 +8,7 @@ function CourseDropdown(props){
     return(
         <div className="courseDropdown">
             <label>What class did you take? </label>
-            <select>
+            <select name="course">
                 {props.courses.map(toOption)}
             </select>
         </div>

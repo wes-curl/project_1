@@ -3,22 +3,52 @@ import QuarterDropdown from './quarterDropdown';
 import YearEntry from './yearEntry';
 import RatingEntry from './ratingEntry';
 import ReviewEntry from './reviewEntry';
-import CourseDropdown from './classDropdown';
+import CourseDropdown from './courseDropdown';
 import SubmitButton from './submitButton';
+import Review from './Review';
+import react from 'react';
+import { Component } from 'react';
 
-function SubmitRating(props){
-    return(
+class SubmitRating extends React.Component{
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            professor: props.professor,
+            postReview: props.postAReview
+        }
+    }
+
+    submitReview(event){
+        event.preventDefault();
+        var term = event.target.term.value;
+        var year = event.target.year.value;
+        var reviewText = event.target.reviewText.value;
+        var rating = event.target.rating.value;
+        var course = event.target.course.value;
+        var review = new Review(term, year, reviewText, rating, course);
+        this.state.postReview(review);
+    }
+
+    render(){
+        return(
         <div className="submitRating">
-            <form>
-                <CourseDropdown courses={props.professor.courses}/>
+            <form onSubmit={this.submitReview.bind(this)}>
+                <CourseDropdown courses={this.state.professor.courses}/>
                 <QuarterDropdown />
                 <YearEntry />
                 <RatingEntry />
                 <ReviewEntry />
-                <SubmitButton postAReview={props.postAReview}/>
+                <SubmitButton getReview={getReview}/>
             </form>
-        </div>
-    );
+        </div>);
+    }
+}
+
+
+
+function getReview(){
+    return new Review("", 0, "", 0, "");
 }
 
 export default SubmitRating;
