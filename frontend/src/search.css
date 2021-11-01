@@ -34,16 +34,8 @@ body {
   position: absolute;
   width: 332px;
   height: 188px;
-  left: 1100px;
+  left: 1000px;
   top: 10px;
-}
-
-.calpolynight {
-  position: absolute;
-  width: 1025px;
-  height: 640px;
-  left: 88px;
-  top: 164px;
 }
 
 textarea{
