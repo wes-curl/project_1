@@ -11,6 +11,7 @@ import Component from 'react'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import Course from "./Course";
 
 
 function getProfessorsByName(name){
@@ -40,12 +41,18 @@ function getProfessorsByClass(className){
          new Professor("Bruno Da Silva", "CSC", true),
          new Professor("Kurt Mammen", "CSC", false),
          new Professor("Christopher Siu", "CSC", true),
-         //new Professor("Farah Al Nakib", "HIST", true)
+         new Professor("Farah Al Nakib", "HIST", true)
       ];
       response[0].avg_rating = 5.0;
       response[1].avg_rating = 1.0;
       response[2].avg_rating = 4.0;
-      //response[3].avg_rating = 3.0;
+      response[3].avg_rating = 3.0;
+
+      response[0].courses = [new Course("CSC 307", [response[0], response[2]]), new Course("CSC 360", response[0])]
+      response[1].courses = [new Course("CSC 357", response[1])]
+      response[2].courses = [new Course("CSC 307", [response[2], response[0]])]
+      response[3].courses = [new Course("HIST 311", response[3])]
+
       return response;
    }
    catch (error) {
