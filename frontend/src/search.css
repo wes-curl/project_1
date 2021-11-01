@@ -1,16 +1,16 @@
 body {
   width: 1440px;
   height: 1024px;
-  background: #2a573c;
+  background: #444444;
 }
 
 .dropdown {
   position: absolute;
   width: 569px;
   height: 89px;
-  left: 364px;
+  left: 350px;
   top: 0px;
-  background: #ffffff;
+  /* background: #ffffff; */
 }
 
 .searchBar {
@@ -34,13 +34,35 @@ body {
   position: absolute;
   width: 332px;
   height: 188px;
-  left: 1017px;
-  top: 70px;
+  left: 1100px;
+  top: 10px;
 }
 
 .calpolynight {
   position: absolute;
   width: 1025px;
+  height: 640px;
+  left: 88px;
+  top: 164px;
+}
+
+textarea{
+  position: absolute;
+  width: 319px;
+  height: 89px;
+}
+.submitSearch
+{
+  position: absolute;
+  width: 100px;
+  height: 89px;
+  left: 350px;
+  top: 20px;
+}
+
+.calpoly{
+  position: absolute;
+  width: 1100px;
   height: 640px;
   left: 88px;
   top: 164px;
