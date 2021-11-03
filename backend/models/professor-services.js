@@ -18,5 +18,12 @@ async function addProfessor(professor) {
     }
 }
 
+async function getAllProfessors() {
+    const lst = await Professor.find();
+    console.log(lst)
+    return lst
+}
+
 exports.findProfByNameAndDept = findProfByNameAndDept;
 exports.addProfessor = addProfessor;
+exports.getAllProfessors = getAllProfessors;
