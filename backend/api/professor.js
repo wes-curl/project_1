@@ -1,8 +1,7 @@
 const express = require('express');
 const professorServices = require('../models/professor-services')
 const courseServices = require('../models/course-services')
-const router = express.Router();
-const app = express();
+const app = express.Router();
 
 app.post('/review', async (req, res) => {
     const course = req.body.course;
@@ -18,4 +17,23 @@ app.post('/review', async (req, res) => {
     res.send(professors)
 })
 
-module.exports = router;
+app.post('/', async (req, res) => {
+    
+    const professor = req.body;
+    professor.active = true;
+
+    const existingProfessor = await professorServices.findProfByNameAndDept(professor.name, professor.dept);
+
+    if (existingProfessor == undefined || existingProfessor == null) {
+
+        const newProfessor = await professorServices.addProfessor(professor);
+
+        if (newProfessor)
+            res.status(201).send(newProfessor);
+        else
+            res.status(500).end();
+    }
+    res.status(202).end();  // Professor already exists in DB
+});
+
+module.exports = app;

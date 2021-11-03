@@ -1,6 +1,26 @@
 const mongoose = require('mongoose');
-const professor = require('./professor');
-const professorModel = require('./professor');
+const Professor = require('./professor');
+
+async function findProfByNameAndDept(professorName, professorDept) {
+
+    returnVal = await Professor.findOne({'name': professorName, 'dept': professorDept});
+    console.log('----findProfByNameAndDept----')
+    console.log(returnVal)
+    console.log('-----------------------------')
+    return returnVal;
+}
+
+async function addProfessor(professor) {
+
+    try {
+        const professorToAdd = new Professor(professor);
+        const savedProfessor = await professorToAdd.save();
+        return savedProfessor;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
 
 // input - prof object, new rating integer | {0 <= x <= 5}7
 async function professorRatingUpdate(prof, newRating) {
@@ -18,16 +38,18 @@ async function professorRatingUpdate(prof, newRating) {
 
 // input: professor name; Output: professor object
 async function findProfByName(prof_name) {
-    return await professor.findOne({'name': prof_name});
+    return await Professor.findOne({'name': prof_name});
 }
 
 // input: none; output: json array of all professors in container
 async function getAllProfessors() {
-    const lst = await professor.find();
+    const lst = await Professor.find();
     console.log(lst)
     return lst
 }
-
+  
+exports.findProfByNameAndDept = findProfByNameAndDept;
+exports.addProfessor = addProfessor;
 exports.findProfByName = findProfByName;
 exports.professorRatingUpdate = professorRatingUpdate;
 exports.getAllProfessors = getAllProfessors;
