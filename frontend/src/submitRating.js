@@ -6,8 +6,8 @@ import ReviewEntry from './reviewEntry';
 import CourseDropdown from './courseDropdown';
 import SubmitButton from './submitButton';
 import Review from './Review';
-import react from 'react';
-import { Component } from 'react';
+
+import styles from "./review.module.css";
 
 class SubmitRating extends React.Component{
     constructor(props) {
@@ -32,7 +32,7 @@ class SubmitRating extends React.Component{
 
     render(){
         return(
-        <div className="submitRating">
+        <div className={styles.submitRating}>
             <form onSubmit={this.submitReview.bind(this)}>
                 <CourseDropdown courses={this.state.professor.courses}/>
                 <QuarterDropdown />

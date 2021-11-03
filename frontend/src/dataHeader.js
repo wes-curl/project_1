@@ -4,9 +4,11 @@ import ProfessorCourses from './professorCourses';
 import ProfessorRating from './ProfessorRating';
 import SubmitRating from './submitRating';
 
+import styles from "./professorPage.module.css";
+
 function DataHeader(props){
     return(
-        <div className="dataHeader">
+        <div className={styles.dataHeader}>
             <ProfessorName name={props.professor.name}/>
             <ProfessorCourses courses={props.professor.courses}/>
             <ProfessorRating review={props.professor.avg_rating}/>

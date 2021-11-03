@@ -11,7 +11,7 @@ import "./professorPageScripts.js";
 
 
 function ProfessorPage(props){
-    import("./professorPage.css");
+    
     var professor = props.professor; 
     let { id } = useParams();
 

@@ -1,21 +1,25 @@
 import React from 'react';
 import Review from './Review.js';
 
+import styles from "./professorPage.module.css";
+
+
+
 function ReviewContainer(props){    
     var review = props.review;
     return(
         <React.Fragment>
             <hr/>
-            <div className="reviewContainer">
-                <div className="courseTermYear">
+            <div className={styles.reviewContainer}>
+                <div className={styles.courseTermYear}>
                     {review.course + " — " + review.term + " " + review.year}
                 </div>
 
-                <div className='rating'>
+                <div className={styles.rating}>
                     {review.rating.toFixed(1)}
                 </div>
                 
-                <p class='reviewText'>{review.review}</p>
+                <p class={styles.reviewText}>{review.review}</p>
             </div>
         </React.Fragment>
     );
