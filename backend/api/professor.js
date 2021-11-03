@@ -17,8 +17,8 @@ app.post('/review', async (req, res) => {
     res.send(professors)
 })
 
-app.post("/", async (req, res) => {
-    console.log(req.body)
+app.post('/', async (req, res) => {
+    
     const professor = req.body;
     professor.active = true;
 
