@@ -1,7 +1,6 @@
 import React from 'react';
 import Review from './Review.js';
 import ReviewContainer from './reviewContainer.js';
-import './professorPage.css';
 
 function ProfessorReviewList(props){
     var testReviews = 

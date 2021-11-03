@@ -2,8 +2,6 @@ import ProfessorHeader from './professorHeader';
 import ProfessorReviewList from './professorReviewList';
 import React from 'react';
 import react from 'react';
-import Professor from './Professor.js';
-import Course from './Course';
 
 import {
     useParams
@@ -11,8 +9,10 @@ import {
 
 import "./professorPageScripts.js";
 
+
 function ProfessorPage(props){
-   var professor = props.professor; 
+    import("./professorPage.css");
+    var professor = props.professor; 
     let { id } = useParams();
 
     return(

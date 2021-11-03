@@ -6,12 +6,10 @@ function ProfessorListElement(props) {
     
     return (
         <div className="professorListElement">
-            {props.professor.name}
-            —
-            {props.professor.avg_rating}
-            —
+            <div class="professorName">{props.professor.name}</div>
+            <div class="professorRating">{props.professor.avg_rating}</div>
             <Link to="/professor">
-            <input type="button" value="Submit" onClick={() => props.onClick(props.professor)} /> 
+            <input type="button" value="See review" onClick={() => props.onClick(props.professor)} /> 
             </Link>
             <hr/>
         </div>

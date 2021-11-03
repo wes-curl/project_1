@@ -3,14 +3,9 @@ import ProfessorList from "./professorList.js";
 import ProfessorPage from "./professorPage";
 
 import Professor from "./Professor";
-import Review from "./Review";
-
-import {useState, useEffect} from 'react';
 import React from "react";
-import Component from 'react'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Course from "./Course";
 
 

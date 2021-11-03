@@ -2,7 +2,10 @@ import React from "react";
 import Professor from "./Professor.js";
 import ProfessorListElement from "./professorListElement.js";
 
+
 function ProfessorList(props) {
+    
+    import("./professorList.css");
     var professors = props.profs;
     return (
         <div className="professorList">
