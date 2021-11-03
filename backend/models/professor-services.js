@@ -3,7 +3,11 @@ const Professor = require('./professor');
 
 async function findProfByNameAndDept(professorName, professorDept) {
 
-    return await Professor.findOne({'name': professorName, 'dept': professorDept});
+    returnVal = await Professor.findOne({'name': professorName, 'dept': professorDept});
+    console.log('----findProfByNameAndDept----')
+    console.log(returnVal)
+    console.log('-----------------------------')
+    return returnVal;
 }
 
 async function addProfessor(professor) {
