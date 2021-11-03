@@ -5,8 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: 
-      - 'dev-main' 
+    branches: [dev-main] 
     
 defaults:
   run:
@@ -25,8 +24,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        ref: dev-main
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
