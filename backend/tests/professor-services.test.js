@@ -5,6 +5,11 @@ professor = {
     'dept': 'CPE'
 }
 
+// Dummy test
+test('dummy test --should always pass', ()=>{
+    expect(1).toBe(1);
+});
+
 // Does not work
 /*test('Test Find Professor', async () => {
     const result = await myFunctions.findProfByNameAndDept(professor.name, professor.dept);
