@@ -11,10 +11,9 @@ function ProfessorListElement(props) {
         <div className={styles.professorListElement}>
             <div className={styles.professorName}>{props.professor.name}</div>
             <Rating rating={props.professor.avg_rating} numRatings={props.professor.num_ratings}/>
-            <Link to="/professor">
+            <Link to="/professor" className={styles.link}>
             <input className={styles.linkButton} type="button" value="See review" onClick={() => props.onClick(props.professor)} /> 
             </Link>
-            <hr/>
         </div>
     );
 }

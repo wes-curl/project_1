@@ -1,6 +1,5 @@
 import React from "react";
-import Professor from "./Professor.js";
-import ProfessorListElement from "./professorListElement.js";
+import ProfessorListSection from "./professorListSection";
 
 import styles from "./professorList.module.css";
 
@@ -9,11 +8,12 @@ function ProfessorList(props) {
     return (
         <div className={styles.professorList}>
             <div className={styles.headerData}>
-                {"Searching by " + props.searchBy}
+                <div className={styles.searchBy}>{"Searching for " + props.searchingWith + " by " + props.searchBy + ":"}</div>
+                <div className={styles.numberFound}>{"Found " + professors.length + " results."}</div>
                 <hr/>
             </div>
-            <form>
-                {professors.map((prof) => <ProfessorListElement onClick={props.onClick} professor={prof} />)}
+            <form className={styles.form}>
+                {professors.map((prof) => <ProfessorListSection onClick={props.onClick} professor={prof} />)}
             </form>
         </div>
     );

@@ -114,7 +114,7 @@ class App extends React.Component{
                     </Route>
   
                     <Route path='/list'>
-                       <ProfessorList searchBy={this.state.searchBy} onClick={this.handleListClick.bind(this)} profs={getProfessors(this.state.searchBy, this.state.data)}/>
+                       <ProfessorList searchBy={this.state.searchBy} searchingWith={this.state.data} onClick={this.handleListClick.bind(this)} profs={getProfessors(this.state.searchBy, this.state.data)}/>
                     </Route>
                              
                     <Route path='/professor'>
