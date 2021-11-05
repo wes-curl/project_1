@@ -9,5 +9,67 @@ body {
 }
 
 .professorListElement{
+    width: 1250px;
+    margin:auto;
+}
+
+.professorName{
+    width: 350px;
+    height: 75px;
+    line-height: 75px;
+    text-align: left;
+    font-size: 25px;
+    display: inline-block;
     
+    vertical-align: middle;
+}
+
+.linkButton{
+    display: inline-block;
+    width: 200px;
+    height: 75px;
+    font-size: 25px;
+    
+    vertical-align: middle;
+    
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+.rating{
+    display: inline-block;
+    width: 575px;
+    height: 75px;
+    
+    vertical-align: middle;
+}
+
+.ratingValue{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 75px;
+    width: 75px;
+    font-size: 25px;
+}
+
+.stars{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.star{
+    height: 60px;
+    width: 60px;
+}
+
+.numberOfRatings{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 75px;
+    width: 200px;
+    font-size: 25px;
+}
+
+hr{
+
 }
