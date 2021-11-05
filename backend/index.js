@@ -16,6 +16,6 @@ const professorEndpoint = require('./api/professor')
 app.use('/api/course', courseEndpoint)
 app.use('/api/professor', professorEndpoint)
 
-app.listen(port, 'localhost', () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});
+app.listen(process.env.PORT || port, () => {
+    console.log("REST API is listening.");
+  });
