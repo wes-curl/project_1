@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const Course = require('./course');
 
 async function findProfByCourse(course_name) {

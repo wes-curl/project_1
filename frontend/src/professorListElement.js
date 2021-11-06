@@ -1,5 +1,4 @@
 import React from "react";
-import Professor from "./Professor.js";
 import { Link } from 'react-router-dom';
 import Rating from "./Rating.js";
 
@@ -12,14 +11,10 @@ function ProfessorListElement(props) {
             <div className={styles.professorName}>{props.professor.name}</div>
             <Rating rating={props.professor.avg_rating} numRatings={props.professor.num_ratings}/>
             <Link to="/professor" className={styles.link}>
-            <input className={styles.linkButton} type="button" value="See review" onClick={() => props.onClick(props.professor)} /> 
+            <input className={styles.linkButton} type="button" value="See reviews" onClick={() => props.onClick(props.professor)} /> 
             </Link>
         </div>
     );
-}
-
-function log(name){
-    console.log(name);
 }
 
 export default ProfessorListElement;

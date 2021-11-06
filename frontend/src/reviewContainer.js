@@ -1,9 +1,5 @@
 import React from 'react';
-import Review from './Review.js';
-
 import styles from "./professorPage.module.css";
-
-
 
 function ReviewContainer(props){    
     var review = props.review;

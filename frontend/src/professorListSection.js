@@ -12,9 +12,5 @@ function ProfessorListSection(props) {
     );
 }
 
-function log(name){
-    console.log(name);
-}
-
 export default ProfessorListSection;
             

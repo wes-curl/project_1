@@ -10,11 +10,11 @@ function Rating(props) {
         <div className={styles.rating}>
             <div className={styles.ratingValue}>{props.rating}</div> 
             <div className={styles.stars}>
-                <img className={styles.star} src={star}></img>  
-                <img className={styles.star} src={star}></img>  
-                <img className={styles.star} src={star}></img>  
-                <img className={styles.star} src={star}></img>  
-                <img className={styles.star} src={star}></img>  
+                <img className={styles.star} src={star} alt=""></img>  
+                <img className={styles.star} src={star} alt=""></img>  
+                <img className={styles.star} src={star} alt=""></img>  
+                <img className={styles.star} src={star} alt=""></img>  
+                <img className={styles.star} src={star} alt=""></img>  
             </div> 
             <div className={styles.numberOfRatings}>({props.numRatings} reviews)</div>
         </div>

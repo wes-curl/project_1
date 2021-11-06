@@ -1,5 +1,4 @@
 import React from 'react';
-import Course from './Course';
 import styles from "./professorPage.module.css";
 
 function ProfessorCourses(props){
