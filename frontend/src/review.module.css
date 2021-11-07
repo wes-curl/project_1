@@ -1,0 +1,38 @@
+.submitRating{
+
+}
+
+.drops{
+    display: inline-block;
+}
+
+.courseDropdown{
+    width: 125px;
+    height: 35px;
+    font-size: 20px;
+    display: flex;
+}
+
+.quarterDropdown{
+    width: 100px;
+    height: 35px;
+    font-size: 20px;
+    display: flex;
+}
+
+.yearEntry{
+    width: 75px;
+    height: 35px;
+    font-size: 20px;
+    display: flex;
+}
+
+.reviewEntry{
+    display: inline-block;
+}
+
+.reviewEntryText{
+    width: 477px;
+    height: 207px;
+    resize: none;
+}

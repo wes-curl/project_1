@@ -4,7 +4,12 @@ import styles from "./professorPage.module.css";
 function ProfessorCourses(props){
     return(
         <div className={styles.professorCourses}>
-            {"Teaches " + props.courses.map((course) => course.courseName).join(", ")}
+            <div className={styles.teaches}>
+                {"Teaches: "}
+            </div>
+            <div className={styles.teachList}>
+                {props.courses.map((course) => course.courseName).join(", ")}
+            </div>
         </div>
     );
 }

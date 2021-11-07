@@ -34,11 +34,13 @@ class SubmitRating extends React.Component{
         return(
         <div className={styles.submitRating}>
             <form onSubmit={this.submitReview.bind(this)}>
-                <CourseDropdown courses={this.state.professor.courses}/>
-                <QuarterDropdown />
-                <YearEntry />
-                <RatingEntry />
                 <ReviewEntry />
+                <div className={styles.drops}>
+                    <CourseDropdown courses={this.state.professor.courses}/>
+                    <QuarterDropdown />
+                    <YearEntry />
+                </div>
+                <RatingEntry />
                 <SubmitButton getReview={getReview}/>
             </form>
         </div>);

@@ -3,18 +3,18 @@ import ProfessorReviewList from './professorReviewList';
 import React from 'react';
 import react from 'react';
 
-import "./professorPageScripts.js";
 
+import "./professorPageScripts.js";
+import styles from "./professorPage.module.css";
 
 function ProfessorPage(props){
-    
     var professor = props.professor; 
 
     return(
-        <react.Fragment>
+        <div className={styles.all}>
             <ProfessorHeader professor={professor} postAReview={props.postAReview}/>
             <ProfessorReviewList />
-        </react.Fragment>
+        </div>
     );
 }
 
