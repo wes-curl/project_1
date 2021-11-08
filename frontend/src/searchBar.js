@@ -17,18 +17,11 @@ function SearchBar(props) {
 export default SearchBar;
 
 function searchBar(){
-  return( <textarea> 
-
-  </textarea> 
-
-  );
+  return( <textarea className={styles.textArea}/>);
 }
 
 function inputSubmit(){
-  return(<div className={styles.submitSearch}>
-  <input type="submit"> 
-  </input>
-  </div>
-
+  return(
+    <input className={styles.Input} type="submit"/>
   );
 }
