@@ -2,24 +2,19 @@ import ProfessorHeader from './professorHeader';
 import ProfessorReviewList from './professorReviewList';
 import React from 'react';
 import react from 'react';
-import Professor from './Professor.js';
-import Course from './Course';
 
-import {
-    useParams
-  } from "react-router-dom";
 
 import "./professorPageScripts.js";
+import styles from "./professorPage.module.css";
 
 function ProfessorPage(props){
-   var professor = props.professor; 
-    let { id } = useParams();
+    var professor = props.professor; 
 
     return(
-        <react.Fragment>
+        <div className={styles.all}>
             <ProfessorHeader professor={professor} postAReview={props.postAReview}/>
             <ProfessorReviewList />
-        </react.Fragment>
+        </div>
     );
 }
 

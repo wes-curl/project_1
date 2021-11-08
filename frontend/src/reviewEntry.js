@@ -1,10 +1,11 @@
 import React from 'react';
 
+import styles from "./review.module.css";
+
 function ReviewEntry(props){
     return(
-        <div className="reviewEntry">
-            <label>Enter a review: </label>
-            <textarea id="reviewEntry" name="reviewText"></textarea>
+        <div className={styles.reviewEntry}>
+            <textarea className={styles.reviewEntryText} required id="reviewEntry" name="reviewText" placeholder="Enter a review?"></textarea>
         </div>
     );
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from "./review.module.css";
+
 function YearEntry(props){
     var toOption = function(X) {
         return <option>{X}</option>;
@@ -15,12 +17,9 @@ function YearEntry(props){
     }
 
     return(
-        <div className="yearEntry">
-            <label>What year did you take the class? </label>
-            <select name="year">
-                {years.map(toOption)}
-            </select>
-        </div>
+        <select className={styles.yearEntry} name="year">
+            {years.map(toOption)}
+        </select>
     );
 }
 

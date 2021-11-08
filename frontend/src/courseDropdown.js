@@ -1,17 +1,17 @@
 import React from 'react';
 
+import styles from "./review.module.css";
+
 function CourseDropdown(props){
     var toOption = function(X) {
         return <option>{X.courseName}</option>;
     };
     
     return(
-        <div className="courseDropdown">
-            <label>What class did you take? </label>
-            <select name="course">
-                {props.courses.map(toOption)}
-            </select>
-        </div>
+        <select name="course" className={styles.courseDropdown}>
+            <option>Course</option>
+            {props.courses.map(toOption)}
+        </select>
     );
 }
 
