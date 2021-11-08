@@ -1,19 +1,25 @@
 const mongoose = require('mongoose');
-const Professor = require('./professor');
+const ProfessorSchema = require('./professor');
+const Connection = require('../database/connection');
 
 async function findProfByNameAndDept(professorName, professorDept) {
-
-    returnVal = await Professor.findOne({'name': professorName, 'dept': professorDept});
-    console.log('----findProfByNameAndDept----')
-    console.log(returnVal)
-    console.log('-----------------------------')
-    return returnVal;
+    const professorModel = Connection.getConnection().model("Professor", ProfessorSchema);
+    try {
+        returnVal = await professorModel.findOne({'name': professorName, 'dept': professorDept});
+        console.log('----findProfByNameAndDept----')
+        console.log(returnVal)
+        console.log('-----------------------------')
+        return returnVal
+    } catch (error) {
+        console.log(error)
+        return undefined;
+    }
 }
 
 async function addProfessor(professor) {
-
+    const professorModel = Connection.getConnection().model("Professor", ProfessorSchema);
     try {
-        const professorToAdd = new Professor(professor);
+        const professorToAdd = new professorModel(professor);
         const savedProfessor = await professorToAdd.save();
         return savedProfessor;
     } catch (error) {
@@ -38,14 +44,20 @@ async function professorRatingUpdate(prof, newRating) {
 
 // input: professor name; Output: professor object
 async function findProfByName(prof_name) {
-    return await Professor.findOne({'name': prof_name});
+    const professorModel = Connection.getConnection().model("Professor", ProfessorSchema);
+    
+    try {
+        return await professorModel.find({name: prof_name});
+    } catch (error) {
+        console.log(error);
+        return undefined;
+    }
 }
 
 // input: none; output: json array of all professors in container
 async function getAllProfessors() {
-    const lst = await Professor.find();
-    console.log(lst)
-    return lst
+    const professorModel = Connection.getConnection().model("Professor", ProfessorSchema);
+    return await professorModel.find();
 }
   
 exports.findProfByNameAndDept = findProfByNameAndDept;
