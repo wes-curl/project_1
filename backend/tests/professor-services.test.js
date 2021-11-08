@@ -58,11 +58,6 @@ afterEach(async () => {
     await professorModel.deleteMany();
 });
 
-// Dummy test
-test('dummy test --should always pass', ()=>{
-    expect(1).toBe(1);
-});
-
 test('Fetching all professors', async() => {
     const professors = await professorServices.getAllProfessors();
     expect(professors).toBeDefined();
