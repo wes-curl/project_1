@@ -1,9 +1,10 @@
 import React from "react";
 import DropDown from "./dropdown";
+import styles from "./homepage.module.css";
 
 function SearchBar(props) {
   return (
-    <div className="searchBar">
+    <div className={styles.searchBar}>
       <form>
       <DropDown />
       {searchBar()}
@@ -24,7 +25,7 @@ function searchBar(){
 }
 
 function inputSubmit(){
-  return(<div className="submitSearch">
+  return(<div className={styles.submitSearch}>
   <input type="submit"> 
   </input>
   </div>
