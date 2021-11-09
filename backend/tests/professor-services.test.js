@@ -94,3 +94,22 @@ test('Add Professor', async() => {
     expect(result.name).toBe(profToAdd.name);
     expect(result.dept).toBe(profToAdd.dept);
 })
+
+test('Add Review', async () => {
+    let result = await professorServices.addReview("Bruno da Silva", "csc307", 5, "fall", 2021, "love the prof!")
+
+    expect(result).toBeDefined();
+    expect(result.name).toBe("Bruno da Silva")
+    expect(result.courses).toContain("csc307")
+    expect(result.reviews).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ 
+            'course': 'csc307',
+            'rating': 5,
+            'term': 'fall',
+            'year': 2021,
+            'comment': "love the prof!"
+          })
+        ])
+      )
+})
