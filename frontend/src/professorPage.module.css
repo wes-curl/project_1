@@ -29,8 +29,9 @@
 }
 
 .all{
-    margin-left: 140px;
-    margin-right: 140px;
+    width: 1250px;
+    margin: auto;
+    margin-top: 30px;
 }
 
 
@@ -38,6 +39,7 @@
     outline: 3px solid black;
     height: 400px;
     width: 350px;
+    object-fit: cover;
 }
 
 .teachList{
@@ -82,4 +84,5 @@
     display: inline-block;
     vertical-align: top;
     height: 404px;
+    position: relative;
 }

@@ -5,7 +5,7 @@ import styles from "./review.module.css";
 function ReviewEntry(props){
     return(
         <div className={styles.reviewEntry}>
-            <textarea className={styles.reviewEntryText} required id="reviewEntry" name="reviewText" placeholder="Enter a review?"></textarea>
+            <textarea maxLength="450" className={styles.reviewEntryText} required id="reviewEntry" name="reviewText" placeholder="Enter a review?"></textarea>
         </div>
     );
 }
