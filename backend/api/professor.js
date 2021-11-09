@@ -27,4 +27,23 @@ app.post('/review', async (req, res) => {
     res.send("added")
 })
 
+app.post('/', async (req, res) => {
+    
+    const professor = req.body;
+    professor.active = true;
+
+    const existingProfessor = await professorServices.findProfByNameAndDept(professor.name, professor.dept);
+
+    if (existingProfessor == undefined || existingProfessor == null) {
+
+        const newProfessor = await professorServices.addProfessor(professor);
+
+        if (newProfessor)
+            res.status(201).send(newProfessor);
+        else
+            res.status(500).end();
+    }
+    res.status(202).end();  // Professor already exists in DB
+});
+
 module.exports = app;

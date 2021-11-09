@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const professorSchema = new mongoose.Schema({
+const ProfessorSchema = new mongoose.Schema({
   name: String,
   dept: String,
   courses: [String],
@@ -14,9 +14,11 @@ const professorSchema = new mongoose.Schema({
     year: Number,
     comment: String
   }]
-})
+},
+{ collection: "professors" }
+);
 
 //will be adding picture later
 
-const professor = mongoose.model("Professors", professorSchema)
-module.exports = professor 
+//const professor = mongoose.model("Professors", professorSchema)
+module.exports = ProfessorSchema;
