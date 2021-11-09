@@ -40,8 +40,11 @@ class SubmitRating extends React.Component{
                     <QuarterDropdown />
                     <YearEntry />
                 </div>
-                <RatingEntry />
-                <SubmitButton getReview={getReview}/>
+                <div className={styles.reviewBottom}>
+                    <SubmitButton getReview={getReview}/>
+                    <RatingEntry />
+                </div>
+                
             </form>
         </div>);
     }
