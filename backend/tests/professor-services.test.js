@@ -51,6 +51,20 @@ beforeEach(async () => {
   };
   result = new professorModel(dummyUser);
   await result.save();
+
+  dummyUser = {
+    name: "Hugh Smith",
+    dept: "CPE",
+  };
+  result = new professorModel(dummyUser);
+  await result.save();
+
+  dummyUser = {
+    name: "Bryan Mealy",
+    dept: "CPE",
+  };
+  result = new professorModel(dummyUser)
+  await result.save();
 });
 
 afterEach(async () => {
@@ -97,4 +111,14 @@ test("Add Professor", async () => {
   expect(result).toBeDefined();
   expect(result.name).toBe(profToAdd.name);
   expect(result.dept).toBe(profToAdd.dept);
+});
+
+test("Fetch professors by dept", async () => {
+
+  const dept = "CPE";
+  const professors = await professorServices.findProfessor(undefined, dept);
+
+  expect(professors).toBeDefined();
+  expect(professors.length).toBeGreaterThan(0);
+  professors.forEach((professor) => expect(professor.dept).toBe(dept));
 });
