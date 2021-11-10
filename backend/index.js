@@ -10,12 +10,12 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-const courseEndpoint = require('./api/course')
-const professorEndpoint = require('./api/professor')
+const courseEndpoint = require("./api/course");
+const professorEndpoint = require("./api/professor");
 
-app.use('/api/course', courseEndpoint)
-app.use('/api/professor', professorEndpoint)
+app.use("/api/course", courseEndpoint);
+app.use("/api/professor", professorEndpoint);
 
-app.listen(port, 'localhost', () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+app.listen(process.env.PORT || port, () => {
+  console.log("REST API is listening.");
 });
