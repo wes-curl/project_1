@@ -1,12 +1,13 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
+const cors = require('cors');
 
-require("./database/connection"); // connection to database
+require('./database/connection')    // connection to database
 
 const app = express();
 
 const port = 5000;
 
+app.use(cors());
 app.use(express.json());
 
 const courseEndpoint = require("./api/course");

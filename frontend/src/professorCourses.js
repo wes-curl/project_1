@@ -1,10 +1,15 @@
 import React from 'react';
-import Course from './Course';
+import styles from "./professorPage.module.css";
 
 function ProfessorCourses(props){
     return(
-        <div className="professorCourses">
-            {"Teaches " + props.courses.map((course) => course.courseName).join(", ")}
+        <div className={styles.professorCourses}>
+            <div className={styles.teaches}>
+                {"Teaches: "}
+            </div>
+            <div className={styles.teachList}>
+                {props.courses.map((course) => course.courseName).join(", ")}
+            </div>
         </div>
     );
 }

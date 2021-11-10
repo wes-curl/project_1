@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Course = require("./course");
+
+const Course = require('./course');
 
 async function findProfByCourse(course_name) {
   const course = await Course.findOne({ name: course_name });
