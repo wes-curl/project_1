@@ -63,7 +63,7 @@ beforeEach(async () => {
     name: "Bryan Mealy",
     dept: "CPE",
   };
-  result = new professorModel(dummyUser)
+  result = new professorModel(dummyUser);
   await result.save();
 });
 
@@ -114,7 +114,6 @@ test("Add Professor", async () => {
 });
 
 test("Fetch professors by dept", async () => {
-
   const dept = "CPE";
   const professors = await professorServices.findProfessor(undefined, dept);
 
