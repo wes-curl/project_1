@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import DropDown from "./dropdown";
 import styles from "./homepage.module.css";
 
@@ -22,6 +23,9 @@ function searchBar(){
 
 function inputSubmit(){
   return(
-    <input className={styles.Input} type="submit"/>
+    <Link to="/list">
+      <input className={styles.Input} type="submit"/>
+    </Link>
+    
   );
 }
