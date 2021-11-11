@@ -151,4 +151,7 @@ test("Fetch ratings by professor", async () => {
   expect(reviewsFound).toEqual(
     expect.arrayContaining([expect.objectContaining(expectedResult1)])
   );
+  expect(reviewsFound).toEqual(
+    expect.arrayContaining([expect.objectContaining(expectedResult2)])
+  );
 });
