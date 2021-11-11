@@ -56,4 +56,14 @@ app.post("/", async (req, res) => {
   res.status(202).end(); // Professor already exists in DB
 });
 
+app.get("reviews/:professor", async (req, res) => {
+  const professor = req.params["professor"];
+  const result = await professorServices.getAllReviews(professor);
+  if (result === undefined || result === null)
+    res.status(404).send("Resource not found.");
+  else {
+    res.send({ reviews_list: result });
+  }
+});
+
 module.exports = app;
