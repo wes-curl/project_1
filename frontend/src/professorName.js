@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from "./professorPage.module.css";
+
 function ProfessorName(props){
     return(
-        <div className="professorName">
+        <div className={styles.professorName}>
             {props.name}
         </div>
     );

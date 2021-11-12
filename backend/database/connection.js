@@ -1,32 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const process = require("process");
 
-const uri = 'mongodb+srv://dev:csc307project@cluster0.g9h5a.mongodb.net/Rate-My-Professor?retryWrites=true&w=majority'
+const uri =
+  "mongodb+srv://dev:csc307project@cluster0.g9h5a.mongodb.net/Rate-My-Professor?retryWrites=true&w=majority";
 
 let conn;
 
 function setConnection(newConn) {
-    return (conn = newConn);
+  return (conn = newConn);
 }
 
 function getConnection() {
-    if (!conn) {
-        if (process.argv.includes("--prod")) {
-            conn = mongoose.createConnection(
-                uri,
-                {
-                    useNewUrlParser: true,
-                    useUnifiedTopology: true,
-                }
-            );
-        } else {
-            conn = mongoose.createConnection("mongodb://localhost:27017/", {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            });
-        }
+  if (!conn) {
+    if (process.argv.includes("--prod")) {
+      conn = mongoose.createConnection(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+    } else {
+      conn = mongoose.createConnection("mongodb://localhost:27017/", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
     }
-    return conn;
+  }
+  return conn;
 }
 
 /*
