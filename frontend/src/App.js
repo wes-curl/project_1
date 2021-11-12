@@ -132,7 +132,11 @@ function App(props){
    }
 
    function postAReview(review){
-
+      axios.post("http://localhost:5000/api/professor/review", review).then(
+         (response) => {
+            console.log(response)
+         }
+      ) 
    }
 
    function getProfessorValues(name){
