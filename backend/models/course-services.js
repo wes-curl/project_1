@@ -1,4 +1,3 @@
-
 const Course = require('./course');
 
 async function findProfByCourse(course_name) {
