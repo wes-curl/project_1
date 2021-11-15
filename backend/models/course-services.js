@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const CourseSchema = require("./course");
 const Connection = require("../database/connection");
 
-
 async function findProfByCourse(course_name) {
   const courseModel = Connection.getConnection().model("Course", CourseSchema);
   const course = await courseModel.findOne({ name: course_name });
