@@ -1,38 +1,93 @@
 .submitRating{
+    vertical-align: bottom;
+    position: absolute;
+    bottom: 0px;
+}
 
+.submitButton{
+    width: 160px;
+    height: 37px;
+    display: inline-block;
+    font-size: 18px;
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: transparent;
+    transition: background-color 0.5s;
+}
+
+.submitButton:hover{
+    background-color: #b8b8b8;
+}
+
+.ratingLabel{
+    vertical-align: middle;
+    line-height: 35px;
+    margin-left: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ratingSlider{
+    vertical-align: middle;
+    width: 190px;
+    margin-right: 4px;
+}
+
+.ratingEntry{
+    display: inline-block;
+    margin-left: 15px;
+    height: 35px;
+    vertical-align: top;
+    border: 1px solid black;
 }
 
 .drops{
     display: inline-block;
+    height: 175px;
+    width: 125px;
+    vertical-align: top;
 }
 
 .courseDropdown{
     width: 125px;
     height: 35px;
     font-size: 20px;
-    display: flex;
+    display: block;
+    margin-bottom: 33px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .quarterDropdown{
     width: 100px;
     height: 35px;
     font-size: 20px;
-    display: flex;
+    display: block;
+    margin-bottom: 33px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sideBy{
+    width: 620px
 }
 
 .yearEntry{
     width: 75px;
     height: 35px;
     font-size: 20px;
-    display: flex;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .reviewEntry{
     display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 .reviewEntryText{
     width: 477px;
-    height: 207px;
+    height: 165px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     resize: none;
+    font-size: medium;
 }
