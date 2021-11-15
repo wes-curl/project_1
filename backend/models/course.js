@@ -5,5 +5,4 @@ const courseSchema = new mongoose.Schema({
   professors: [String],
 });
 
-module.exports = courseSchema
-
+module.exports = courseSchema;
