@@ -1,7 +1,11 @@
-const Course = require('./course');
+const mongoose = require("mongoose");
+const CourseSchema = require("./course");
+const Connection = require("../database/connection");
+
 
 async function findProfByCourse(course_name) {
-  const course = await Course.findOne({ name: course_name });
+  const courseModel = Connection.getConnection().model("Course", CourseSchema);
+  const course = await courseModel.findOne({ name: course_name });
   if (course === null) {
     return course;
   }
@@ -9,12 +13,14 @@ async function findProfByCourse(course_name) {
 }
 
 async function findCourseByCourseName(course_name) {
-  return await Course.find({ name: course_name });
+  const courseModel = Connection.getConnection().model("Course", CourseSchema);
+  return await courseModel.findOne({ name: course_name });
 }
 
 async function addCourse(course_name, professor) {
+  const courseModel = Connection.getConnection().model("Course", CourseSchema);
   try {
-    const courseToAdd = new Course({
+    const courseToAdd = new courseModel({
       name: course_name,
       professors: [professor],
     });
@@ -28,9 +34,14 @@ async function addCourse(course_name, professor) {
 
 async function addProfessor(course_name, professor) {
   try {
-    await Course.findOne({ name: course_name }).then((course) => {
-      course.professors.append(professor);
-      course.save();
+    const courseModel = Connection.getConnection().model(
+      "Course",
+      CourseSchema
+    );
+    const filter = { name: course_name };
+    const update = { $addToSet: { professors: professor } };
+    return await courseModel.findOneAndUpdate(filter, update, {
+      returnOriginal: false,
     });
   } catch (error) {
     console.log(error);
