@@ -84,4 +84,5 @@ async function professorRatingUpdate(prof, newRating) {
 
 exports.findProfessor = findProfessor;
 exports.addProfessor = addProfessor;
+exports.addReview = addReview;
 exports.professorRatingUpdate = professorRatingUpdate;

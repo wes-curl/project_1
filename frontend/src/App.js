@@ -28,6 +28,7 @@ function App(props){
    }
 
    function postAReview(review){
+      console.log(review);
       axios.post("http://localhost:5001/api/professor/review", review).then(
          (response) => {
             console.log(response)
