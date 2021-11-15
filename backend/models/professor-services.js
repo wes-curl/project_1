@@ -82,6 +82,13 @@ async function professorRatingUpdate(prof, newRating) {
   return newNum, newAvg;
 }
 
+async function getStars(prof) {
+  const profRating = prof.avgRating;
+  const ret = 0.5 * Math.floor(2 * profRating);
+  return ret;
+}
+
+exports.getStars = getStars;
 exports.findProfessor = findProfessor;
 exports.addProfessor = addProfessor;
 exports.professorRatingUpdate = professorRatingUpdate;

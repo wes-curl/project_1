@@ -41,6 +41,7 @@ beforeEach(async () => {
   dummyUser = {
     name: "John Oliver",
     dept: "CPE",
+    avgRating: 3.3,
   };
   result = new professorModel(dummyUser);
   await result.save();
@@ -55,6 +56,7 @@ beforeEach(async () => {
   dummyUser = {
     name: "Hugh Smith",
     dept: "CPE",
+    avgRating: 3.3,
   };
   result = new professorModel(dummyUser);
   await result.save();
@@ -120,4 +122,12 @@ test("Fetch professors by dept", async () => {
   expect(professors).toBeDefined();
   expect(professors.length).toBeGreaterThan(0);
   professors.forEach((professor) => expect(professor.dept).toBe(dept));
+});
+
+test("get stars", async () => {
+  const professorName = "Hugh Smith";
+  const profName = await professorServices.findProfessor(professorName);
+  const profStars = await professorServices.getStars(profName);
+
+  expect(profStars).toBe(3.0);
 });

@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 
-require('./database/connection')    // connection to database
+require("./database/connection"); // connection to database
 
 const app = express();
 

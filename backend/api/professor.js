@@ -59,10 +59,14 @@ app.post("/", async (req, res) => {
 app.get("/stars/:professor", async (req, res) => {
   const name = req.params["professor"];
   const prof = await professorServices.findProfessor(name, _undefined);
-  if (result === undefined || result === null)
+
+  if (prof === undefined || prof === null)
     res.status(404).send("professor not found.");
   else {
-    res.send(/* getStars(prof) */);
+    const stars = await getStars(prof);
+    if (stars === undefined || stars === null)
+      res.status(404).send("ratings not found.");
+    else res.send(stars);
   }
 });
 
