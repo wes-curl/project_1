@@ -18,9 +18,9 @@ function App(props){
    const [professor, getProfessor] = useState(null);
 
    function getProfessorsByCourse(course){
-      axios.get("http://localhost:5000/api/course/" + course.courseName).then(
+      axios.get("http://localhost:5001/api/course/" + course.courseName).then(
          (response) => {
-            const names = response.data.course_list.professors;
+            const names = response.data.course_list;
             var professors = names.map((name) => getProfessorValues(name));
             getSearchedProfessors(professors);
          }
