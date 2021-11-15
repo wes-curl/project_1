@@ -35,6 +35,14 @@ function App(props){
       ) 
    }
 
+   function postAProfessor(professor){
+      axios.post("http://localhost:5000/api/professor/professor", professor).then(
+         (response) => {
+            console.log(response)
+         }
+      ) 
+   }
+
    function getProfessorValues(name){
       const v = new Professor("Bruno Da Silva", "CSC", true);
       v.avg_rating = 5;
