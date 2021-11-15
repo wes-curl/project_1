@@ -34,6 +34,18 @@ beforeEach(async () => {
   let dummyUser = {
     name: "Bruno da Silva",
     dept: "CSC",
+    reviews: [
+      {
+        course: "307",
+        rating: "5",
+        comment: "great",
+      },
+      {
+        course: "308",
+        rating: "4",
+        comment: "good",
+      },
+    ],
   };
   let result = new professorModel(dummyUser);
   await result.save();
@@ -120,4 +132,26 @@ test("Fetch professors by dept", async () => {
   expect(professors).toBeDefined();
   expect(professors.length).toBeGreaterThan(0);
   professors.forEach((professor) => expect(professor.dept).toBe(dept));
+});
+
+test("Fetch ratings by professor", async () => {
+  const expectedResult1 = {
+    course: "307",
+    rating: 5,
+    comment: "great",
+  };
+  const expectedResult2 = {
+    course: "308",
+    rating: 4,
+    comment: "good",
+  };
+
+  const professorName = "Bruno da Silva";
+  const reviewsFound = await professorServices.getAllReviews(professorName);
+  expect(reviewsFound).toEqual(
+    expect.arrayContaining([expect.objectContaining(expectedResult1)])
+  );
+  expect(reviewsFound).toEqual(
+    expect.arrayContaining([expect.objectContaining(expectedResult2)])
+  );
 });

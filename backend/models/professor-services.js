@@ -82,6 +82,25 @@ async function professorRatingUpdate(prof, newRating) {
   return newNum, newAvg;
 }
 
+// get all reviews for a professor - return null if professor does not exist
+async function getAllReviews(professor) {
+  try {
+    const professorModel = Connection.getConnection().model(
+      "Professor",
+      ProfessorSchema
+    );
+    const professorToFind = await professorModel.findOne({ name: professor });
+    if (professorToFind === null) {
+      return professorToFind;
+    }
+    return professorToFind.reviews;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
+exports.getAllReviews = getAllReviews;
 exports.findProfessor = findProfessor;
 exports.addProfessor = addProfessor;
 exports.professorRatingUpdate = professorRatingUpdate;
