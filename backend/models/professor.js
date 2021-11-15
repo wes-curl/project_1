@@ -15,6 +15,8 @@ const ProfessorSchema = new mongoose.Schema(
         term: String,
         year: Number,
         comment: String,
+        upvotes: Number,
+        downvotes: Number,
       },
     ],
   },
