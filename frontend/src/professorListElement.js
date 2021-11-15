@@ -1,25 +1,20 @@
 import React from "react";
-import Professor from "./Professor.js";
 import { Link } from 'react-router-dom';
+import Rating from "./Rating.js";
+
+import styles from "./professorList.module.css";
 
 function ProfessorListElement(props) {
     
     return (
-        <div className="professorListElement">
-            {props.professor.name}
-            —
-            {props.professor.avg_rating}
-            —
-            <Link to="/professor">
-            <input type="button" value="Submit" onClick={() => props.onClick(props.professor)} /> 
+        <div className={styles.professorListElement}>
+            <div className={styles.professorName}>{props.professor.name}</div>
+            <Rating rating={props.professor.avg_rating} numRatings={props.professor.num_ratings}/>
+            <Link to="/professor" className={styles.link}>
+            <input className={styles.linkButton} type="button" value="See reviews" onClick={() => props.onClick(props.professor)} /> 
             </Link>
-            <hr/>
         </div>
     );
-}
-
-function log(name){
-    console.log(name);
 }
 
 export default ProfessorListElement;

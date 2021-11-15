@@ -1,10 +1,10 @@
 import React from 'react';
 
+import styles from "./review.module.css";
+
 function SubmitButton(props){
     return(
-        <div className="submitButton">
-            <input type="submit" value="Submit Review"/>
-        </div>
+        <input className={styles.submitButton} onClick={props.onClick} type="submit" value="Submit Review"/>
     );
 }
 

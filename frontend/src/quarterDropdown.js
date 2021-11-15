@@ -1,16 +1,16 @@
 import React from 'react';
 
+import styles from "./review.module.css";
+
 function QuarterDropdown(props){
     return(
-        <div className="quarterDropdown">
-            <label>What quarter did you take the class? </label>
-            <select name="term">
-                <option>Fall</option>
-                <option>Winter</option>
-                <option>Spring</option>
-                <option>Summer</option>
-            </select>
-        </div>
+        <select className={styles.quarterDropdown} name="term">
+            <option>Quarter</option>
+            <option>Fall</option>
+            <option>Winter</option>
+            <option>Spring</option>
+            <option>Summer</option>
+        </select>
     );
 }
 

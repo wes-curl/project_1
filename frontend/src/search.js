@@ -7,9 +7,9 @@ import styles from "./homepage.module.css";
 function SearchPage(props) {
   return (
     <div className= {styles.searchContainer}>
-      <h1> Welcome to PolyRatings! </h1>
-      <img className="polyLogo" src={polyLogo} alt=""></img>
-      <img className="polyDay" src={polyDay} alt=""></img>
+      <h1 className={styles.H1}> Welcome to PolyRatings! </h1>
+      <img className={styles.polyLogo} src={polyLogo} alt=""/>
+      <img className={styles.polyDay} src={polyDay} alt=""/>
       <SearchBar />
     </div>
   );

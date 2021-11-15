@@ -1,16 +1,9 @@
-body {
-  width: 1440px;
-  height: 1024px;
-  background: #444444;
-}
-
 .dropdown {
   position: absolute;
   width: 569px;
   height: 89px;
   left: 350px;
   top: 0px;
-  /* background: #ffffff; */
 }
 
 .searchBar {
@@ -46,14 +39,14 @@ body {
   top: 164px;
 }
 
-textarea{
+.textArea{
   position: absolute;
   width: 319px;
   height: 69px;
   background:rgb(122, 202, 115); 
 }
 
-input[type=submit] {
+.Input[type=submit] {
   position: absolute;
   left: 350px;
   top: 25px;
@@ -66,7 +59,7 @@ input[type=submit] {
   border-radius: 5px; 
 }
 
-h1{
+.H1{
   position: absolute;
   width: 400px;
   left: 150px;

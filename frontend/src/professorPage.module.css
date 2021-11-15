@@ -18,7 +18,7 @@
     font-size: 35px;
     line-height: 55px;
     Position:absolute;
-    left: 420px;
+    left: 570px;
 }
 
 .reviewText{
@@ -28,8 +28,29 @@
 .reviewContainer{
 }
 
+.all{
+    width: 1250px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+
 .professorImage{
     outline: 3px solid black;
+    height: 400px;
+    width: 350px;
+    object-fit: cover;
+}
+
+.teachList{
+    display: inline-block;
+    height: 72px;
+    width: 500px;
+    text-align: left;
+}
+.teaches{
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .professorImageContainer{
@@ -38,29 +59,21 @@
 }
 
 .professorName{
-    background-color: #2A573C;
     font-family: 'Roboto', sans-serif;
-    font-size: 65px;
+    font-size: 50px;
     width: fit-content;
-    line-height: 90px;
-    height: 90px;
+    line-height: 50px;
+    height: 50px;
+    text-decoration: underline;
 }
 
 .professorRating{
-    background-color: #2A573C;
-    width: 190px;
-    height: 140px;
-    font-size: 140px;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    line-height: 140px;
-    letter-spacing: -15px;
 }   
 
 .professorCourses{
-    background-color: #F8C84D;
     font-family: 'Roboto', sans-serif;
     width: fit-content;
+    height: 72px;
     height: 40px;
     font-size: 24px;
     line-height: 40px;
@@ -70,4 +83,6 @@
 .dataHeader{
     display: inline-block;
     vertical-align: top;
+    height: 404px;
+    position: relative;
 }
