@@ -40,7 +40,7 @@ function App(props){
       const v = new Professor("Bruno Da Silva", "CSC", true);
       v.avg_rating = 5;
       v.courses = [new Course("CSC 307", v)];
-      v.num_ratings = 32;
+      v.num_ratings = 4;
       v.reviews = [new Review("fall 2021", 2021, "testing", 5, "CSC 307")];
       return v;
    }
