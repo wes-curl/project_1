@@ -1,7 +1,4 @@
 import React from "react";
-import Professor from "./Professor.js";
-import { Link } from 'react-router-dom';
-import star from "./star.png";
 import Stars from "./stars.js";
 import styles from "./professorList.module.css";
 

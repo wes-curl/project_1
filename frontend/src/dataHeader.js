@@ -1,7 +1,6 @@
 import React from 'react';
 import ProfessorName from './professorName';
 import ProfessorCourses from './professorCourses';
-import ProfessorRating from './ProfessorRating';
 import SubmitRating from './submitRating';
 
 import styles from "./professorPage.module.css";

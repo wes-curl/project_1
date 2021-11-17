@@ -1,8 +1,5 @@
 import ProfessorHeader from './professorHeader';
 import ProfessorReviewList from './professorReviewList';
-import React from 'react';
-import react from 'react';
-
 
 import "./professorPageScripts.js";
 import styles from "./professorPage.module.css";

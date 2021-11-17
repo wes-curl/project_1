@@ -51,7 +51,7 @@ function App(props){
    }
 
    useEffect(() => {
-      var course = new Course("csc307", []);
+      var course = new Course("csc3070", []);
       getProfessorsByCourse(course);
    }, []);
 

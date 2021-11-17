@@ -1,6 +1,7 @@
 import React from "react";
 import ProfessorListSection from "./professorListSection";
 import styles from "./professorList.module.css";
+import AddProfessorForm from "./AddProfessorForm";
 
 function ProfessorList(props) {
     var professors = props.profs;
@@ -15,20 +16,29 @@ function ProfessorList(props) {
             <form className={styles.form}>
                 {nothingIfUndefined(professors, props.onClick)}
             </form>
+            {formIfNothing(professors)}
+            
         </div>
     );
 }
 
 function zeroIfUndefined(professors){
-    if(professors == undefined){
+    if(professors === undefined){
         return "-";
     } else {
         return professors.length;
     }
 }
 
+function formIfNothing(professors){
+    if(professors === undefined || professors === null){
+        console.log("bing");
+        return <AddProfessorForm/>;
+    }
+}
+
 function nothingIfUndefined(professors, onClick){
-    if(professors == undefined || professors == null){
+    if(professors === undefined || professors === null){
         return null;
     } else {
         console.log("profs" + professors);

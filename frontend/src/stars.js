@@ -1,5 +1,3 @@
-import react from 'react';
-import React from 'react';
 import outline from "./outline.png";
 import styles from "./stars.module.css";
 
