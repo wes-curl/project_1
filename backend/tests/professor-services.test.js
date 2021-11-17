@@ -34,6 +34,18 @@ beforeEach(async () => {
   let dummyUser = {
     name: "Bruno da Silva",
     dept: "CSC",
+    reviews: [
+      {
+        course: "307",
+        rating: "5",
+        comment: "great",
+      },
+      {
+        course: "308",
+        rating: "4",
+        comment: "good",
+      },
+    ],
   };
   let result = new professorModel(dummyUser);
   await result.save();
@@ -162,7 +174,7 @@ test("Test upvoting a review", async () => {
 
   let professor = await professorServices.findProfessor("Bruno da Silva");
 
-  let result = await professorServices.vote(professor[0]._id, 0, true);
+  let result = await professorServices.vote(professor[0]._id, 2, true);
 
   expect(result).toBeDefined();
   expect(result.upvotes).toBe(1);
@@ -181,7 +193,7 @@ test("Test downvoting a review", async () => {
 
   let professor = await professorServices.findProfessor("Bruno da Silva");
 
-  let result = await professorServices.vote(professor[0]._id, 0, false);
+  let result = await professorServices.vote(professor[0]._id, 2, false);
 
   expect(result).toBeDefined();
   expect(result.upvotes).toBe(0);
@@ -191,7 +203,30 @@ test("Test downvoting a review", async () => {
 test("Test voting on a non existent review", async () => {
   let professor = await professorServices.findProfessor("Bruno da Silva");
 
-  let result = await professorServices.vote(professor[0]._id, 1, false);
+  let result = await professorServices.vote(professor[0]._id, 10, false);
 
   expect(result).toBeUndefined();
+});
+
+test("Fetch ratings by professor", async () => {
+  const expectedResult1 = {
+    course: "307",
+    rating: 5,
+    comment: "great",
+  };
+  const expectedResult2 = {
+    course: "308",
+    rating: 4,
+    comment: "good",
+  };
+
+  const professorName = "Bruno da Silva";
+  const reviewsFound = await professorServices.getAllReviews(professorName);
+  expect(reviewsFound.length).toBe(2);
+  expect(reviewsFound).toEqual(
+    expect.arrayContaining([expect.objectContaining(expectedResult1)])
+  );
+  expect(reviewsFound).toEqual(
+    expect.arrayContaining([expect.objectContaining(expectedResult2)])
+  );
 });
