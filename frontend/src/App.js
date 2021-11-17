@@ -18,9 +18,9 @@ function App(props){
    const [professor, getProfessor] = useState(null);
 
    function getProfessorsByCourse(course){
-      axios.get("http://localhost:5000/api/course/" + course.courseName).then(
+      axios.get("http://localhost:5001/api/course/" + course.courseName).then(
          (response) => {
-            const names = response.data.course_list.professors;
+            const names = response.data.course_list;
             var professors = names.map((name) => getProfessorValues(name));
             getSearchedProfessors(professors);
          }
@@ -28,7 +28,8 @@ function App(props){
    }
 
    function postAReview(review){
-      axios.post("http://localhost:5000/api/professor/review", review).then(
+      console.log(review);
+      axios.post("http://localhost:5001/api/professor/review", review).then(
          (response) => {
             console.log(response)
          }
@@ -47,7 +48,7 @@ function App(props){
       const v = new Professor("Bruno Da Silva", "CSC", true);
       v.avg_rating = 5;
       v.courses = [new Course("CSC 307", v)];
-      v.num_ratings = 32;
+      v.num_ratings = 4;
       v.reviews = [new Review("fall 2021", 2021, "testing", 5, "CSC 307")];
       return v;
    }
