@@ -51,12 +51,12 @@ function App(props){
    }
 
    useEffect(() => {
-      var course = new Course("csc3070", []);
+      var course = new Course("csc307", []);
       getProfessorsByCourse(course);
    }, []);
 
    function addAProfessor(prof){
-      console.log(prof);
+      console.log(prof);  
    }
 
    return (
