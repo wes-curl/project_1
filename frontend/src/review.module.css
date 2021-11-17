@@ -21,24 +21,36 @@
 }
 
 .ratingLabel{
-    vertical-align: middle;
+    vertical-align: top;
+    display: inline-block;
     line-height: 35px;
-    margin-left: 4px;
+    margin-left: 5px;
+    margin-right: 5px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .ratingSlider{
-    vertical-align: middle;
-    width: 190px;
-    margin-right: 4px;
+    vertical-align: top;
+    width: 150px;
+    height: 35px;
+    margin: 0px;
 }
 
 .ratingEntry{
     display: inline-block;
     margin-left: 15px;
+    width: 305px;
     height: 35px;
+    line-height: 35px;
     vertical-align: top;
     border: 1px solid black;
+}
+
+.ratingValueDisplay{
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    font-size: 20px;
 }
 
 .drops{
