@@ -16,7 +16,7 @@ function ProfessorList(props) {
             <form className={styles.form}>
                 {nothingIfUndefined(professors, props.onClick)}
             </form>
-            {formIfNothing(professors)}
+            {formIfNothing(professors, props.AddProf)}
             
         </div>
     );
@@ -30,10 +30,9 @@ function zeroIfUndefined(professors){
     }
 }
 
-function formIfNothing(professors){
-    if(professors === undefined || professors === null){
-        console.log("bing");
-        return <AddProfessorForm/>;
+function formIfNothing(professors, addProf){
+    if(professors === undefined || professors === null || professors.length == 0){
+        return <AddProfessorForm AddProf={addProf}/>;
     }
 }
 

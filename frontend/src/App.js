@@ -55,6 +55,10 @@ function App(props){
       getProfessorsByCourse(course);
    }, []);
 
+   function addAProfessor(prof){
+      console.log(prof);
+   }
+
    return (
       <div>
          <BrowserRouter>
@@ -65,7 +69,7 @@ function App(props){
                   </Route>
 
                   <Route path='/list'>
-                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors}/>
+                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors} AddProf={addAProfessor}/>
                   </Route>
                            
                   <Route path='/professor'>
