@@ -56,4 +56,18 @@ app.post("/", async (req, res) => {
   res.status(202).end(); // Professor already exists in DB
 });
 
+app.post("/vote", async (req, res) => {
+  const professorID = req.body.professorID;
+  const reviewID = req.body.reviewID;
+  const upvote = req.body.upvote;
+
+  const result = professorServices.vote(professorID, reviewID, upvote);
+
+  if (result === undefined) {
+    res.status(400).end();
+  } else {
+    res.status(200).end();
+  }
+});
+
 module.exports = app;

@@ -53,6 +53,8 @@ async function addReview(name, course, rating, term, year, comment) {
           term: term,
           year: year,
           comment: comment,
+          upvotes: 0,
+          downvotes: 0,
         },
       },
     };
@@ -82,6 +84,39 @@ async function professorRatingUpdate(prof, newRating) {
   return newNum, newAvg;
 }
 
+async function vote(professorID, reviewID, upvote) {
+  try {
+    const professorModel = Connection.getConnection().model(
+      "Professor",
+      ProfessorSchema
+    );
+
+    let professor = await professorModel.findOne({ _id: professorID });
+
+    if ((professor === undefined) | (professor === null)) {
+      return undefined;
+    }
+
+    if (reviewID > professor.reviews.length - 1) {
+      return undefined;
+    }
+
+    if (upvote == true) {
+      professor.reviews[reviewID].upvotes =
+        professor.reviews[reviewID].upvotes + 1;
+    } else {
+      professor.reviews[reviewID].downvotes =
+        professor.reviews[reviewID].downvotes + 1;
+    }
+    return professor.reviews[reviewID];
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
+}
+
 exports.findProfessor = findProfessor;
 exports.addProfessor = addProfessor;
 exports.professorRatingUpdate = professorRatingUpdate;
+exports.vote = vote;
+exports.addReview = addReview;
