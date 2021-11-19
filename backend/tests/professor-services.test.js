@@ -134,6 +134,80 @@ test("Fetch professors by dept", async () => {
   professors.forEach((professor) => expect(professor.dept).toBe(dept));
 });
 
+test("Add Review", async () => {
+  let result = await professorServices.addReview(
+    "Bruno da Silva",
+    "csc307",
+    5,
+    "fall",
+    2021,
+    "love the prof!"
+  );
+
+  expect(result).toBeDefined();
+  expect(result.name).toBe("Bruno da Silva");
+  expect(result.courses).toContain("csc307");
+  expect(result.reviews).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        course: "csc307",
+        rating: 5,
+        term: "fall",
+        year: 2021,
+        comment: "love the prof!",
+        upvotes: 0,
+        downvotes: 0,
+      }),
+    ])
+  );
+});
+
+test("Test upvoting a review", async () => {
+  await professorServices.addReview(
+    "Bruno da Silva",
+    "csc307",
+    5,
+    "fall",
+    2021,
+    "love the prof!"
+  );
+
+  let professor = await professorServices.findProfessor("Bruno da Silva");
+
+  let result = await professorServices.vote(professor[0]._id, 2, true);
+
+  expect(result).toBeDefined();
+  expect(result.upvotes).toBe(1);
+  expect(result.downvotes).toBe(0);
+});
+
+test("Test downvoting a review", async () => {
+  await professorServices.addReview(
+    "Bruno da Silva",
+    "csc307",
+    5,
+    "fall",
+    2021,
+    "love the prof!"
+  );
+
+  let professor = await professorServices.findProfessor("Bruno da Silva");
+
+  let result = await professorServices.vote(professor[0]._id, 2, false);
+
+  expect(result).toBeDefined();
+  expect(result.upvotes).toBe(0);
+  expect(result.downvotes).toBe(1);
+});
+
+test("Test voting on a non existent review", async () => {
+  let professor = await professorServices.findProfessor("Bruno da Silva");
+
+  let result = await professorServices.vote(professor[0]._id, 10, false);
+
+  expect(result).toBeUndefined();
+});
+
 test("Fetch ratings by professor", async () => {
   const expectedResult1 = {
     course: "307",
@@ -148,6 +222,7 @@ test("Fetch ratings by professor", async () => {
 
   const professorName = "Bruno da Silva";
   const reviewsFound = await professorServices.getAllReviews(professorName);
+  expect(reviewsFound.length).toBe(2);
   expect(reviewsFound).toEqual(
     expect.arrayContaining([expect.objectContaining(expectedResult1)])
   );
