@@ -7,7 +7,7 @@ function Rating(props) {
     return (
         <div className={styles.rating}>
             <div className={styles.ratingValue}>{props.rating}</div> 
-            <Stars value={props.rating}/>
+            <Stars value={props.rating} width={300} height={60}/>
             <div className={styles.numberOfRatings}>({props.numRatings} reviews)</div>
         </div>
     );
