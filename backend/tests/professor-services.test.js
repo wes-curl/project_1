@@ -3,6 +3,7 @@ const ProfessorSchema = require("../models/professor");
 const professorServices = require("../models/professor-services");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const Connection = require("../database/connection");
+const grav = require("../../frontend/gravatar/gravatar");
 
 let mongoServer;
 let conn;
@@ -229,4 +230,10 @@ test("Fetch ratings by professor", async () => {
   expect(reviewsFound).toEqual(
     expect.arrayContaining([expect.objectContaining(expectedResult2)])
   );
+});
+
+test("Gravatar URL test", async () => {
+  const expectedURL =
+    "https://www.gravatar.com/avatar/719cb45d9a9a68c217d0c94fbbac8d87?r=g&s=250";
+  expect(grav.getGravatar("aeller916@gmail.com", "250")).toBe(expectedURL);
 });
