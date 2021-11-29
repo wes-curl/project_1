@@ -43,6 +43,7 @@ function App(props){
       for(let i = 0; i < response.length; i++){
          prof_matching.push(response[i].name);
       }
+      return prof_matching;
       // const names = response.data.name
 
    }
