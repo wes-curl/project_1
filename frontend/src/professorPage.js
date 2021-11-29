@@ -5,7 +5,7 @@ import "./professorPageScripts.js";
 import styles from "./professorPage.module.css";
 
 function ProfessorPage(props){
-    var professor = props.professor; 
+    var professor = props.professor;
 
     return(
         <div className={styles.all}>

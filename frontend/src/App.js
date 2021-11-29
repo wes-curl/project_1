@@ -37,7 +37,7 @@ function App(props){
    }
 
    function postAProfessor(professor){
-      axios.post("http://localhost:5000/api/professor/professor", professor).then(
+      axios.post("http://localhost:5001/api/professor/professor", professor).then(
          (response) => {
             console.log(response)
          }
@@ -67,6 +67,10 @@ function App(props){
       console.log(prof);  
    }
 
+   //CURSED, but makes it work
+   var URL = window.location.href.split("/");
+   var ID = URL[URL.length - 1];
+
    return (
       <div>
          <BrowserRouter>
@@ -81,7 +85,7 @@ function App(props){
                   </Route>
                            
                   <Route path='/professor'>
-                     <ProfessorPage professor={professor} postAReview={postAReview}/>
+                     <ProfessorPage professor={getProfessorValues(ID)} postAReview={postAReview}/>
                   </Route>
                </Switch>
          </main>
