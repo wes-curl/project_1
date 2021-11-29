@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const md5 = require('md5');
 
 require("./database/connection"); // connection to database
 
