@@ -45,7 +45,15 @@ function App(props){
       }
       return prof_matching;
       // const names = response.data.name
-
+   }
+  
+   function postAProfessor(professor){
+      axios.post("http://localhost:5001/api/professor/professor", professor).then(
+         (response) => {
+            console.log(response)
+         }
+      ) 
+    
    }
 
    function getProfessorValues(name){
@@ -67,6 +75,14 @@ function App(props){
       getProfessorsByCourse(course);
    }, []);
 
+   function addAProfessor(prof){
+      console.log(prof);  
+   }
+
+   //CURSED, but makes it work
+   var URL = window.location.href.split("/");
+   var name = URL[URL.length - 1];
+
    return (
       <div>
          <BrowserRouter>
@@ -77,11 +93,11 @@ function App(props){
                   </Route>
 
                   <Route path='/list'>
-                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors}/>
+                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors} AddProf={addAProfessor}/>
                   </Route>
                            
                   <Route path='/professor'>
-                     <ProfessorPage professor={professor} postAReview={postAReview}/>
+                     <ProfessorPage professor={getProfessorValues(name)} postAReview={postAReview}/>
                   </Route>
                </Switch>
          </main>
