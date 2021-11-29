@@ -36,12 +36,24 @@ function App(props){
       ) 
    }
 
+   function getProfessorsMatching(req){
+      const prof_matching = [];
+      const response = axios.get("http://localhost:5001/api/professor", { params: { name: req.body } })
+      // for over all the indices of the response table, and get each name and add it to the prof_matching[]
+      for(let i = 0; i < response.length; i++){
+         prof_matching.push(response[i].name);
+      }
+      return prof_matching;
+      // const names = response.data.name
+   }
+  
    function postAProfessor(professor){
       axios.post("http://localhost:5001/api/professor/professor", professor).then(
          (response) => {
             console.log(response)
          }
       ) 
+    
    }
 
    function getProfessorValues(name){
