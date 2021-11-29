@@ -69,7 +69,7 @@ function App(props){
 
    //CURSED, but makes it work
    var URL = window.location.href.split("/");
-   var ID = URL[URL.length - 1];
+   var name = URL[URL.length - 1];
 
    return (
       <div>
@@ -85,7 +85,7 @@ function App(props){
                   </Route>
                            
                   <Route path='/professor'>
-                     <ProfessorPage professor={getProfessorValues(ID)} postAReview={postAReview}/>
+                     <ProfessorPage professor={getProfessorValues(name)} postAReview={postAReview}/>
                   </Route>
                </Switch>
          </main>
