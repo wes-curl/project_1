@@ -3,7 +3,7 @@ const ProfessorSchema = require("../models/professor");
 const professorServices = require("../models/professor-services");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const Connection = require("../database/connection");
-const grav = require("../../frontend/gravatar/gravatar");
+const grav = require("../gravatar/gravatar");
 
 let mongoServer;
 let conn;
