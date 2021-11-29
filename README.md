@@ -1,6 +1,6 @@
 # project_1
 
-![example workflow](https://github.com/wes-curl/project_1/tree/main/.github/workflows/node.js.yml/badge.svg)
+![example workflow](https://github.com/wes-curl/project_1/actions/workflows/node.js.yml/badge.svg)
 
 CSC 307 project 1 repository. A professor ratings website.
 
