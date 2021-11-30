@@ -5,6 +5,7 @@ CSC 307 project 1 repository. A professor ratings website.
 [![Node.js CI](https://github.com/wes-curl/project_1/actions/workflows/node.js.yml/badge.svg?branch=dev-main)](https://github.com/wes-curl/project_1/actions/workflows/node.js.yml)
 
 UI Wireframe: https://www.figma.com/file/pZQ0XXtjFgpyR4HkkmXX4c/Poly-Rating?node-id=0%3A1
+
 Diagrams: Please find both diagrams in the repo.
 
 For this repo, we've decided to use prettier. 
