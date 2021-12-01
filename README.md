@@ -32,3 +32,18 @@ Development Environment: In order to properly develop on a new workstation, the 
 For example, if the issue name is `Update Readme` and the issue number is 1. The branch name will be `1-Update Readme`.
 
 Heroku page: https://dashboard.heroku.com/apps/professor-rate
+
+Code coverage report:
+December 1st, 2021
+------------------------|---------|----------|---------|---------|----------------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s          
+------------------------|---------|----------|---------|---------|----------------------------
+All files               |      85 |    80.76 |     100 |      85 |                            
+ database               |   72.72 |       25 |     100 |   72.72 |                            
+  connection.js         |   72.72 |       25 |     100 |   72.72 | 15-21                      
+ models                 |   86.51 |     90.9 |     100 |   86.51 |                            
+  course-services.js    |   85.71 |      100 |     100 |   85.71 | 29-30,46-47                
+  course.js             |     100 |      100 |     100 |     100 |                            
+  professor-services.js |   85.45 |       90 |     100 |   85.45 | 33-34,68-69,97,113-114,127 
+  professor.js          |     100 |      100 |     100 |     100 |                            
+------------------------|---------|----------|---------|---------|----------------------------
