@@ -8,6 +8,7 @@ This website allow users to rate professors at Cal Poly.  The user of the websit
 - Class
 - Professor name
 - Department
+
 The professor ratings are based on a 5 star rating system.  A user enters a score from 1 to 5 (1 being poor, 5 being great) based on how good of a job the professor did.  The score is then added to the database and an average rating based on all on all previous ratings is displayed.  There is also a professor avatar feature.  Pictures of professesors that have online avatars on the global avatar service Gravatar are displayed as profile pictures.
 
 UI Wireframe: https://www.figma.com/file/pZQ0XXtjFgpyR4HkkmXX4c/Poly-Rating?node-id=0%3A1
