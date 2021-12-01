@@ -10,12 +10,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Course from "./Course";
 import axios from "axios";
 import Review from "./Review";
+import { render } from "@testing-library/react";
 
 function App(props){
    const [searchedProfessors, getSearchedProfessors] = useState([]);
-   const [searchBy, getSearchBy] = useState("");
-   const [searchWith, getSearchWith] = useState("");
    const [professor, getProfessor] = useState(null);
+   var searchBy;
+   var searchWith;
+   var name;
 
    function getProfessorsByCourse(course){
       axios.get("http://localhost:5001/api/course/" + course.courseName).then(
@@ -53,7 +55,6 @@ function App(props){
             console.log(response)
          }
       ) 
-    
    }
 
    function getProfessorValues(name){
@@ -73,15 +74,18 @@ function App(props){
    useEffect(() => {
       var course = new Course("csc307", []);
       getProfessorsByCourse(course);
+
+      //CURSED, but makes it work
+      var URL = window.location.href.split("/");
+      name = URL[URL.length - 1];
+
+      searchBy = URL[URL.length - 2];
+      searchWith = URL[URL.length - 1];
    }, []);
 
    function addAProfessor(prof){
       console.log(prof);  
    }
-
-   //CURSED, but makes it work
-   var URL = window.location.href.split("/");
-   var name = URL[URL.length - 1];
 
    return (
       <div>
@@ -89,7 +93,7 @@ function App(props){
          <main>
                <Switch>
                   <Route exact path='/'>
-                     <SearchPage />
+                     <SearchPage/>
                   </Route>
 
                   <Route path='/list'>
