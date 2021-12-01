@@ -17,6 +17,13 @@ The branch name will be as follows:
 
 For example, if the issue name is `Update Readme` and the issue number is 1. The branch name will be `1-Update Readme`.
 
+Development Environment: In order to properly develop on a new workstation, the development environment should match up
+                         with our previous developers. Run "npm install" to install the dependencies that are present. Do this
+                         once in the frontend folder, and then again in the backend folder, as they have separate package.json files.
+                         After installing the dependencies, you can run the backend by entering "npm run dev" while in the backend folder. 
+                         To run the frontend, enter "npm start" while in the frontend folder.
+
+
 Diagrams:  Please find both diagrams in the repo named 'Untitled Diagram.drawio.png' and 'UML.pdf'
 
 //testing github actions
