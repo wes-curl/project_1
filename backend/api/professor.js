@@ -61,9 +61,9 @@ app.post("/vote", async (req, res) => {
   const reviewID = req.body.reviewID;
   const upvote = req.body.upvote;
 
-  const result = professorServices.vote(professorID, reviewID, upvote);
+  const result = await professorServices.vote(professorID, reviewID, upvote);
 
-  if (result === undefined) {
+  if (result === false) {
     res.status(400).end();
   } else {
     res.status(200).end();
