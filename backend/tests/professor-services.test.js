@@ -163,7 +163,7 @@ test("Add Review", async () => {
 });
 
 test("Test upvoting a review", async () => {
-  await professorServices.addReview(
+  let professor = await professorServices.addReview(
     "Bruno da Silva",
     "csc307",
     5,
@@ -172,17 +172,17 @@ test("Test upvoting a review", async () => {
     "love the prof!"
   );
 
-  let professor = await professorServices.findProfessor("Bruno da Silva");
+  let result = await professorServices.vote(
+    professor._id,
+    professor.reviews[professor.reviews.length - 1]._id,
+    true
+  );
 
-  let result = await professorServices.vote(professor[0]._id, 2, true);
-
-  expect(result).toBeDefined();
-  expect(result.upvotes).toBe(1);
-  expect(result.downvotes).toBe(0);
+  expect(result).toBeTruthy();
 });
 
 test("Test downvoting a review", async () => {
-  await professorServices.addReview(
+  let professor = await professorServices.addReview(
     "Bruno da Silva",
     "csc307",
     5,
@@ -191,21 +191,25 @@ test("Test downvoting a review", async () => {
     "love the prof!"
   );
 
-  let professor = await professorServices.findProfessor("Bruno da Silva");
+  let result = await professorServices.vote(
+    professor._id,
+    professor.reviews[professor.reviews.length - 1]._id,
+    false
+  );
 
-  let result = await professorServices.vote(professor[0]._id, 2, false);
-
-  expect(result).toBeDefined();
-  expect(result.upvotes).toBe(0);
-  expect(result.downvotes).toBe(1);
+  expect(result).toBeTruthy();
 });
 
 test("Test voting on a non existent review", async () => {
   let professor = await professorServices.findProfessor("Bruno da Silva");
 
-  let result = await professorServices.vote(professor[0]._id, 10, false);
+  let result = await professorServices.vote(
+    professor[0]._id,
+    "012345678912",
+    false
+  );
 
-  expect(result).toBeUndefined();
+  expect(result).toBeFalsy();
 });
 
 test("Fetch ratings by professor", async () => {
