@@ -31,4 +31,4 @@ Development Environment: In order to properly develop on a new workstation, the 
 
 For example, if the issue name is `Update Readme` and the issue number is 1. The branch name will be `1-Update Readme`.
 
-//another test
+Heroku page: https://dashboard.heroku.com/apps/professor-rate
