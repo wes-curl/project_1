@@ -234,14 +234,3 @@ test("Fetch ratings by professor", async () => {
     expect.arrayContaining([expect.objectContaining(expectedResult2)])
   );
 });
-
-/*test("Fail add professor", async () => {
-  let profToAdd = {
-    nonField: "Sajan Johal",
-    something: "CPE",
-  };
-
-  let result = await professorServices.addProfessor(profToAdd);
-
-  expect(result).toBeFalsy();
-});*/
