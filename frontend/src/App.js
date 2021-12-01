@@ -15,9 +15,9 @@ import { render } from "@testing-library/react";
 function App(props){
    const [searchedProfessors, getSearchedProfessors] = useState([]);
    const [professor, getProfessor] = useState(null);
-   var searchBy;
-   var searchWith;
-   var name;
+   const [searchBy, getSearchBy] = useState("nothin'");
+   const [searchWith, getSearchWith] = useState("nothin'");
+   const [name, getName] = useState("nobody'");
 
    function getProfessorsByCourse(course){
       axios.get("http://localhost:5001/api/course/" + course.courseName).then(
@@ -76,10 +76,10 @@ function App(props){
       getProfessorsByCourse(course);
 
       var URL = window.location.href.split("/");
-      name = URL[URL.length - 1];
+      getName(URL[URL.length - 1]);
 
-      searchBy = URL[URL.length - 2];
-      searchWith = URL[URL.length - 1];
+      getSearchBy(URL[URL.length - 2]);
+      getSearchWith(URL[URL.length - 1]);
       console.log("A: " + searchBy);
    }, []);
 
@@ -87,6 +87,11 @@ function App(props){
       console.log(prof);  
    }
    
+   function updateApp(){
+      getSearchBy(URL[URL.length - 2]);
+      getSearchWith(URL[URL.length - 1]);
+   }
+
    console.log("B: " + searchBy);
    return (
       <div>
@@ -94,7 +99,7 @@ function App(props){
          <main>
                <Switch>
                   <Route exact path='/'>
-                     <SearchPage/>
+                     <SearchPage updateApp={updateApp}/>
                   </Route>
 
                   <Route path='/list'>

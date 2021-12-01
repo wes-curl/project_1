@@ -17,6 +17,7 @@ function SearchBar(props) {
   function linker(){
     var text = getText();
     var type = getType();
+    props.updateApp();
     history.push("/list/" + getType() + "/" + getText());
   }
 
