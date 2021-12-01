@@ -54,6 +54,7 @@ function App(props){
    }
   
    function postAProfessor(professor){
+      console.log("posting prof")
       axios.post("http://localhost:5001/api/professor/professor", professor).then(
          (response) => {
             console.log(response)
@@ -86,7 +87,7 @@ function App(props){
    useEffect(() => {
       var course = new Course("csc307", []);
       getProfessorsByCourse(course);
-
+      
       var URL = window.location.href.split("/");
       getName(URL[URL.length - 1]);
 
@@ -94,10 +95,6 @@ function App(props){
       getSearchWith(URL[URL.length - 1]);
       console.log("A: " + searchBy);
    }, []);
-   
-   function addAProfessor(prof){
-      console.log(prof);  
-   }
    
    return (
       <div>
@@ -109,7 +106,7 @@ function App(props){
                   </Route>
 
                   <Route path='/list'>
-                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors} AddProf={addAProfessor}/>
+                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors} AddProf={postAProfessor}/>
                   </Route>
                            
                   <Route path='/professor'>
