@@ -82,7 +82,7 @@ test("Add Professor", async () => {
     "csc349",
     "New Professor Name"
   );
-  console.log(course);
+
   expect(course).toBeDefined();
   expect(course.name).toBe("csc349");
   expect(course.professors.length).toEqual(4);
