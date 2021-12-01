@@ -50,12 +50,12 @@ function App(props){
    }
   
    function postAProfessor(professor){
+      console.log("posting prof")
       axios.post("http://localhost:5001/api/professor/professor", professor).then(
          (response) => {
             console.log(response)
          }
       ) 
-    
    }
 
    function getProfessorObj(name){
@@ -85,17 +85,9 @@ function App(props){
       getProfessorsByCourse(course);
    }, []);
 
-   function addAProfessor(prof){
-      console.log(prof);  
-   }
-
    //CURSED, but makes it work
    var URL = window.location.href.split("/");
    var name = URL[URL.length - 1];
-
-   // console.log("testing...")
-   var test = getProfessorObj("test")
-   console.log(test)
 
    return (
       <div>
@@ -107,7 +99,7 @@ function App(props){
                   </Route>
 
                   <Route path='/list'>
-                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors} AddProf={addAProfessor}/>
+                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors} AddProf={postAProfessor}/>
                   </Route>
                            
                   <Route path='/professor'>
