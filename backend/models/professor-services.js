@@ -90,28 +90,27 @@ async function vote(professorID, reviewID, upvote) {
       "Professor",
       ProfessorSchema
     );
-
-    let professor = await professorModel.findOne({ _id: professorID });
-
-    if ((professor === undefined) | (professor === null)) {
-      return undefined;
-    }
-
-    if (reviewID > professor.reviews.length - 1) {
-      return undefined;
-    }
-
+    const filter = {
+      _id: professorID,
+      "reviews._id": reviewID,
+    };
+    update = {};
     if (upvote == true) {
-      professor.reviews[reviewID].upvotes =
-        professor.reviews[reviewID].upvotes + 1;
+      update = {
+        $inc: { "reviews.$.upvotes": 1 },
+      };
     } else {
-      professor.reviews[reviewID].downvotes =
-        professor.reviews[reviewID].downvotes + 1;
+      update = {
+        $inc: { "reviews.$.downvotes": 1 },
+      };
     }
-    return professor.reviews[reviewID];
+
+    result = await professorModel.updateOne(filter, update);
+
+    return result.modifiedCount == 1 ? true : false;
   } catch (error) {
     console.log(error);
-    return undefined;
+    return false;
   }
 }
 
