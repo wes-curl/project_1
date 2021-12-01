@@ -235,8 +235,13 @@ test("Fetch ratings by professor", async () => {
   );
 });
 
-/*test("Gravatar URL test", async () => {
-  const expectedURL =
-    "https://www.gravatar.com/avatar/719cb45d9a9a68c217d0c94fbbac8d87?r=g&s=250";
-  expect(grav.getGravatar("aeller916@gmail.com", "250")).toBe(expectedURL);
+/*test("Fail add professor", async () => {
+  let profToAdd = {
+    nonField: "Sajan Johal",
+    something: "CPE",
+  };
+
+  let result = await professorServices.addProfessor(profToAdd);
+
+  expect(result).toBeFalsy();
 });*/
