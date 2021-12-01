@@ -25,7 +25,9 @@ function App(props){
       axios.get("http://localhost:5001/api/course/" + course.courseName).then(
          (response) => {
             const names = response.data.course_list;
+            console.log("names: " +names);
             var professors = names.map((name) => getProfessorObj(name));
+            console.log(professors);
             getSearchedProfessors(professors);
          }
       ).catch((error) => console.log(error));
@@ -39,20 +41,27 @@ function App(props){
          }
       ) 
    }
-
-   function getProfessorsMatching(name){
-      const prof_matching = [];
-      axios.get("http://localhost:5001/api/professor", { params: { name: name } }).then(
-         (response) => {
-            const prof_lst = response.data
+/*
+   async function getProfessorsMatching(name){
+      var prof_matching = [];
+      await axios.get("http://localhost:5001/api/professor", { params: { name: name } }).then(
+         async (response) => {
+            var prof_lst = response.data
+            console.log(prof_lst);
             for (let i = 0; i < prof_lst.length; i++) {
                   prof_matching.push(prof_lst[i].name);
             }
+            console.log(prof_matching);
+            prof_matching = prof_matching.map((async (P) => await getProfessorObj(P)));
+            console.log(prof_matching);
          }
       )
-      return prof_matching
-   }
-  
+      
+      getSearchedProfessors(prof_matching);
+      
+   }*/
+
+      
    function postAProfessor(professor){
       console.log("posting prof")
       axios.post("http://localhost:5001/api/professor/professor", professor).then(
@@ -62,16 +71,15 @@ function App(props){
       ) 
    }
 
-   function getProfessorObj(name){
-      // console.log("clear")
+   async function getProfessorObj(name){
       var ret_value = "error"
-      axios.get("http://localhost:5001/api/professor", { params: { name: name } }).then(
+      await axios.get("http://localhost:5001/api/professor", { params: { name: name } }).then(
          (response) => {
             const prof_lst = response.data
             for (let i = 0; i < prof_lst.length; i++) {
                   if (prof_lst[i].name == name) {
-                     console.log(prof_lst[i])
-                     ret_value = prof_lst[i]
+                     ret_value = prof_lst[i];
+                     console.log("done");
                   }
             }
          }
@@ -85,17 +93,23 @@ function App(props){
    }
 
    useEffect(() => {
-      var course = new Course("csc307", []);
-      getProfessorsByCourse(course);
-      
       var URL = window.location.href.split("/");
       getName(URL[URL.length - 1]);
 
       getSearchBy(URL[URL.length - 2]);
       getSearchWith(URL[URL.length - 1]);
-      console.log("A: " + searchBy);
+
+      if(URL.length > 1){
+         if(URL[3] == "list"){
+            if(URL[4] == "Class"){
+               getProfessorsByCourse(URL[5]);
+            } else {
+               getProfessorObj(URL[5]).then((P) => getSearchedProfessors([P]));
+            }
+         }
+      }
    }, []);
-   
+
    return (
       <div>
          <BrowserRouter forceRefresh={true}>

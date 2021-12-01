@@ -2,6 +2,7 @@ import React from "react";
 import ProfessorListSection from "./professorListSection";
 import styles from "./professorList.module.css";
 import AddProfessorForm from "./AddProfessorForm";
+import Professor from "./Professor";
 
 function ProfessorList(props) {
     var professors = props.profs;
