@@ -35,6 +35,7 @@ Heroku page: https://dashboard.heroku.com/apps/professor-rate
 
 Code coverage report:
 December 1st, 2021
+
 ------------------------|---------|----------|---------|---------|----------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s          
 ------------------------|---------|----------|---------|---------|----------------------------
