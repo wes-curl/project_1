@@ -25,7 +25,7 @@ function App(props){
       axios.get("http://localhost:5001/api/course/" + course.courseName).then(
          (response) => {
             const names = response.data.course_list;
-            var professors = names.map((name) => getProfessorValues(name));
+            var professors = names.map((name) => getProfessorObj(name));
             getSearchedProfessors(professors);
          }
       ).catch((error) => console.log(error));
@@ -40,15 +40,17 @@ function App(props){
       ) 
    }
 
-   function getProfessorsMatching(req){
+   function getProfessorsMatching(name){
       const prof_matching = [];
-      const response = axios.get("http://localhost:5001/api/professor", { params: { name: req.body } })
-      // for over all the indices of the response table, and get each name and add it to the prof_matching[]
-      for(let i = 0; i < response.length; i++){
-         prof_matching.push(response[i].name);
-      }
-      return prof_matching;
-      // const names = response.data.name
+      axios.get("http://localhost:5001/api/professor", { params: { name: name } }).then(
+         (response) => {
+            const prof_lst = response.data
+            for (let i = 0; i < prof_lst.length; i++) {
+                  prof_matching.push(prof_lst[i].name);
+            }
+         }
+      )
+      return prof_matching
    }
   
    function postAProfessor(professor){
@@ -59,13 +61,21 @@ function App(props){
       ) 
    }
 
-   function getProfessorValues(name){
-      const v = new Professor("Bruno Da Silva", "CSC", true);
-      v.avg_rating = 5;
-      v.courses = [new Course("CSC 307", v)];
-      v.num_ratings = 4;
-      v.reviews = [new Review("fall 2021", 2021, "testing", 5, "CSC 307")];
-      return v;
+   function getProfessorObj(name){
+      // console.log("clear")
+      var ret_value = "error"
+      axios.get("http://localhost:5001/api/professor", { params: { name: name } }).then(
+         (response) => {
+            const prof_lst = response.data
+            for (let i = 0; i < prof_lst.length; i++) {
+                  if (prof_lst[i].name == name) {
+                     console.log(prof_lst[i])
+                     ret_value = prof_lst[i]
+                  }
+            }
+         }
+      )
+      return ret_value
    }
 
    function handleListClick(prof){
@@ -88,8 +98,7 @@ function App(props){
    function addAProfessor(prof){
       console.log(prof);  
    }
-
-   console.log("B: " + searchBy);
+   
    return (
       <div>
          <BrowserRouter forceRefresh={true}>
@@ -104,7 +113,7 @@ function App(props){
                   </Route>
                            
                   <Route path='/professor'>
-                     <ProfessorPage professor={getProfessorValues(name)} postAReview={postAReview}/>
+                     <ProfessorPage professor={getProfessorObj(name)} postAReview={postAReview}/>
                   </Route>
                </Switch>
          </main>
