@@ -12,6 +12,8 @@ import axios from "axios";
 import Review from "./Review";
 import { render } from "@testing-library/react";
 
+import {useHistory} from "react-router-dom";
+
 function App(props){
    const [searchedProfessors, getSearchedProfessors] = useState([]);
    const [professor, getProfessor] = useState(null);
@@ -82,24 +84,19 @@ function App(props){
       getSearchWith(URL[URL.length - 1]);
       console.log("A: " + searchBy);
    }, []);
-
+   
    function addAProfessor(prof){
       console.log(prof);  
-   }
-   
-   function updateApp(){
-      getSearchBy(URL[URL.length - 2]);
-      getSearchWith(URL[URL.length - 1]);
    }
 
    console.log("B: " + searchBy);
    return (
       <div>
-         <BrowserRouter>
+         <BrowserRouter forceRefresh={true}>
          <main>
                <Switch>
                   <Route exact path='/'>
-                     <SearchPage updateApp={updateApp}/>
+                     <SearchPage/>
                   </Route>
 
                   <Route path='/list'>

@@ -40,7 +40,6 @@ function nothingIfUndefined(professors, onClick){
     if(professors === undefined || professors === null){
         return null;
     } else {
-        console.log("profs" + professors);
         return professors.map((prof) => <ProfessorListSection onClick={onClick} professor={prof} />);
     }
 }

@@ -10,7 +10,7 @@ function SearchPage(props) {
       <h1 className={styles.H1}> Welcome to PolyRatings! </h1>
       <img className={styles.polyLogo} src={polyLogo} alt=""/>
       <img className={styles.polyDay} src={polyDay} alt=""/>
-      <SearchBar updateApp={props.updateApp}/>
+      <SearchBar/>
     </div>
   );
 }
