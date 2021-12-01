@@ -75,18 +75,19 @@ function App(props){
       var course = new Course("csc307", []);
       getProfessorsByCourse(course);
 
-      //CURSED, but makes it work
       var URL = window.location.href.split("/");
       name = URL[URL.length - 1];
 
       searchBy = URL[URL.length - 2];
       searchWith = URL[URL.length - 1];
+      console.log("A: " + searchBy);
    }, []);
 
    function addAProfessor(prof){
       console.log(prof);  
    }
-
+   
+   console.log("B: " + searchBy);
    return (
       <div>
          <BrowserRouter>
