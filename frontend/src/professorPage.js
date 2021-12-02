@@ -6,9 +6,8 @@ import styles from "./professorPage.module.css";
 
 function ProfessorPage(props){
     var professor = props.professor;
-    console.log(professor);
 
-    if(professor == null){
+    if(professor === null || professor === undefined){
         return(<div/>);
     }
 

@@ -15,7 +15,7 @@ function ReviewContainer(props){
                     {review.rating.toFixed(1)}
                 </div>
                 
-                <p class={styles.reviewText}>{review.comment}</p>
+                <p className={styles.reviewText}>{review.comment}</p>
             </div>
         </React.Fragment>
     );

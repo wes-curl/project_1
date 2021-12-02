@@ -5,11 +5,11 @@ import styles from "./review.module.css";
 function QuarterDropdown(props){
     return(
         <select className={styles.quarterDropdown} name="term">
-            <option>Quarter</option>
-            <option>Fall</option>
-            <option>Winter</option>
-            <option>Spring</option>
-            <option>Summer</option>
+            <option key="default">Quarter</option>
+            <option key="F">Fall</option>
+            <option key="W">Winter</option>
+            <option key="Sp">Spring</option>
+            <option key="Su">Summer</option>
         </select>
     );
 }

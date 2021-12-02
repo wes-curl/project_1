@@ -2,7 +2,6 @@ import React from "react";
 import ProfessorListSection from "./professorListSection";
 import styles from "./professorList.module.css";
 import AddProfessorForm from "./AddProfessorForm";
-import Professor from "./Professor";
 
 function ProfessorList(props) {
     var professors = props.profs;
@@ -32,7 +31,7 @@ function zeroIfUndefined(professors){
 }
 
 function formIfNothing(professors, addProf){
-    if(professors === undefined || professors === null || professors.length == 0){
+    if(professors === undefined || professors === null || professors.length === 0){
         return <AddProfessorForm AddProf={addProf}/>;
     }
 }
@@ -41,7 +40,7 @@ function nothingIfUndefined(professors, onClick){
     if(professors === undefined || professors === null){
         return null;
     } else {
-        return professors.map((prof) => <ProfessorListSection onClick={onClick} professor={prof} />);
+        return professors.map((prof) => <ProfessorListSection key={prof.name} onClick={onClick} professor={prof} />);
     }
 }
 

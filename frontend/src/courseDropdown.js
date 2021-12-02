@@ -4,12 +4,12 @@ import styles from "./review.module.css";
 
 function CourseDropdown(props){
     var toOption = function(X) {
-        return <option>{X.courseName}</option>;
+        return <option key={X}>{X}</option>;
     };
     
     return(
         <select name="course" className={styles.courseDropdown}>
-            <option>Course</option>
+            <option key="default">Course</option>
             {props.courses.map(toOption)}
         </select>
     );

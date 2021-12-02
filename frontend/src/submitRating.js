@@ -30,7 +30,14 @@ class SubmitRating extends React.Component{
         this.state.postReview(review);
     }
 
+    componentDidMount(){
+        console.log(this.state.professor);
+    }
+
     render(){
+        if(this.state.professor === undefined){
+            return(<div/>);
+        }
         return(
         <div className={styles.submitRating}>
             <form onSubmit={this.submitReview.bind(this)}>

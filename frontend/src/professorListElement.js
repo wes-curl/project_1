@@ -6,8 +6,6 @@ import styles from "./professorList.module.css";
 
 function ProfessorListElement(props) {
 
-    console.log("----->"+props.professor);
-
     return (
         <div className={styles.professorListElement}>
             <div className={styles.professorName}>{props.professor.name}</div>
