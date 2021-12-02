@@ -11,7 +11,7 @@ function DataHeader(props){
         <div className={styles.dataHeader}>
             <ProfessorName name={props.professor.name}/>
             <ProfessorCourses courses={props.professor.courses}/>
-            <Stars value={props.professor.avg_rating} width={450} height={90}/>
+            <Stars value={props.professor.avgRating} width={450} height={90}/>
             <SubmitRating professor={props.professor} postAReview={props.postAReview}/>
         </div>
     );

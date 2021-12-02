@@ -107,7 +107,11 @@ function App(props){
                getProfessorObj(URL[5]).then((P) => getSearchedProfessors([P]));
             }
          }
+         if(URL[3] == "professor"){
+            getProfessorObj(URL[4]).then((P) => getProfessor(P));
+         }
       }
+
    }, []);
 
    return (
@@ -124,7 +128,7 @@ function App(props){
                   </Route>
                            
                   <Route path='/professor'>
-                     <ProfessorPage professor={getProfessorObj(name)} postAReview={postAReview}/>
+                     <ProfessorPage professor={professor} postAReview={postAReview}/>
                   </Route>
                </Switch>
          </main>
