@@ -17,7 +17,6 @@ function App(props){
       axios.get("http://localhost:5001/api/course/" + course.courseName).then(
          (response) => {
             const names = response.data.course_list;
-            console.log("names: " +names);
             var professors = names.map((name) => getProfessorObj(name));
             console.log(professors);
             getSearchedProfessors(professors);
@@ -26,7 +25,6 @@ function App(props){
    }
 
    function postAReview(review){
-      console.log(review);
       axios.post("http://localhost:5001/api/professor/review", review).then(
          (response) => {
             console.log(response)
