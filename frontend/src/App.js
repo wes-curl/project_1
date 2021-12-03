@@ -10,8 +10,8 @@ import axios from "axios";
 function App(props){
    const [searchedProfessors, getSearchedProfessors] = useState([]);
    const [professor, getProfessor] = useState(null);
-   const [searchBy, getSearchBy] = useState("nothin'");
-   const [searchWith, getSearchWith] = useState("nothin'");
+   const [searchBy, getSearchBy] = useState("");
+   const [searchWith, getSearchWith] = useState("");
 
    function getProfessorsByCourse(course){
       axios.get("http://localhost:5001/api/course/" + course.courseName).then(
