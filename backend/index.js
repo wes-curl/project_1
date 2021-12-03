@@ -23,3 +23,7 @@ app.get("/", (req, res) => {
 app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");
 });
+
+app.get("/", (req, res) => {
+  res.send("HIOTWENPTGINWEO");
+});

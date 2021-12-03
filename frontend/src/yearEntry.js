@@ -4,7 +4,7 @@ import styles from "./review.module.css";
 
 function YearEntry(props){
     var toOption = function(X) {
-        return <option>{X}</option>;
+        return <option key={X}>{X}</option>;
     };
 
     var years = [];

@@ -4,6 +4,7 @@ import DataHeader from './dataHeader.js';
 import styles from "./professorPage.module.css";
 
 function ProfessorHeader(props){
+    
     return(
         <div className={styles.professorHeader}>
             <div className={styles.professorImageContainer}>

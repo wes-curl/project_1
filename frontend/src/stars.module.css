@@ -1,0 +1,28 @@
+
+.fill{
+    background-color: goldenrod;
+    width: 0px;
+    height: 60px;
+    position: absolute;
+}
+
+.stars{
+    display: inline-block;
+    width: 300px;
+    height: 60px;
+    
+    vertical-align: middle;
+}
+
+.background{
+    background-color: rgb(129, 129, 129);
+    width: 300px;
+    height: 60px;
+    position: absolute;
+}
+
+.outline{
+    width: 300px;
+    height: 60px;
+    position: absolute;
+}

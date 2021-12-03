@@ -69,7 +69,7 @@ body {
 
 .rating{
     display: inline-block;
-    width: 575px;
+    width: 650px;
     height: 75px;
     
     vertical-align: middle;
@@ -79,7 +79,7 @@ body {
     display: inline-block;
     vertical-align: middle;
     line-height: 75px;
-    width: 75px;
+    width: 40px;
     font-size: 25px;
 }
 
@@ -104,4 +104,16 @@ body {
 
 .hr{
     width: 1250px;
+}
+
+.AddProfessorForm{
+    width: 1250px;
+    margin-left: 95px;
+}
+
+.department{
+
+}
+.addProfessorButton{
+
 }

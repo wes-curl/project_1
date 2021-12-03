@@ -11,7 +11,7 @@ app.get("/", async (req, res) => {
     professorName,
     professorDept
   );
-
+  
   res.send(professors);
 });
 

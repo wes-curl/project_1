@@ -131,6 +131,7 @@ async function getAllReviews(professor) {
 exports.getAllReviews = getAllReviews;
 exports.findProfessor = findProfessor;
 exports.addProfessor = addProfessor;
+exports.addReview = addReview;
 exports.professorRatingUpdate = professorRatingUpdate;
 exports.vote = vote;
 exports.addReview = addReview;
