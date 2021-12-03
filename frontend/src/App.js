@@ -14,14 +14,23 @@ function App(props){
    const [searchWith, getSearchWith] = useState("");
 
    function getProfessorsByCourse(course){
-      axios.get("http://localhost:5001/api/course/" + course.courseName).then(
+      console.log(course);
+      axios.get("http://localhost:5001/api/course/" + course).then(
          (response) => {
             const names = response.data.course_list;
+            console.log(names);
             var professors = names.map((name) => getProfessorObj(name));
             console.log(professors);
-            getSearchedProfessors(professors);
+            getSearchedProfessorsAsync(professors);
          }
       ).catch((error) => console.log(error));
+   }
+
+   async function getSearchedProfessorsAsync(professors){
+      var professorObjects = [];
+      Promise.all(professors).then((values) => {
+         getSearchedProfessors(values.filter((prof) => prof != "error"));
+       });
    }
 
    function postAReview(review){
