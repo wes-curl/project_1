@@ -18,9 +18,7 @@ function App(props){
       axios.get("http://localhost:5001/api/course/" + course).then(
          (response) => {
             const names = response.data.course_list;
-            console.log(names);
             var professors = names.map((name) => getProfessorObj(name));
-            console.log(professors);
             getSearchedProfessorsAsync(professors);
          }
       ).catch((error) => console.log(error));
