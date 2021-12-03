@@ -41,13 +41,14 @@ app.post("/review", async (req, res) => {
 app.post("/", async (req, res) => {
   const professor = req.body;
   professor.active = true;
-  
+  professor.numRatings = 0;
+
   const existingProfessor = await professorServices.findProfessor(
     professor.name,
     professor.dept
   );
-
-  if (existingProfessor == undefined || existingProfessor == null) {
+    console.log(existingProfessor);
+  if (existingProfessor != undefined && existingProfessor != null && existingProfessor != []) {
     const newProfessor = await professorServices.addProfessor(professor);
 
     if (newProfessor) res.status(201).send(newProfessor);
