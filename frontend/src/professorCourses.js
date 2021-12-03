@@ -8,7 +8,7 @@ function ProfessorCourses(props){
                 {"Teaches: "}
             </div>
             <div className={styles.teachList}>
-                {props.courses.map((course) => course.courseName).join(", ")}
+                {props.courses.map((course) => course).join(", ")}
             </div>
         </div>
     );

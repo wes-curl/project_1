@@ -58,6 +58,7 @@ async function addReview(name, course, rating, term, year, comment) {
         },
       },
     };
+
     await professorModel.findOneAndUpdate(filter, {
       $addToSet: { courses: course },
     });

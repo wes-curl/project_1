@@ -21,12 +21,13 @@ class SubmitRating extends React.Component{
 
     submitReview(event){
         event.preventDefault();
+        var name = this.state.professor.name;
         var term = event.target.term.value;
         var year = event.target.year.value;
         var reviewText = event.target.reviewText.value;
         var rating = event.target.rating.value;
         var course = event.target.course.value;
-        var review = new Review(term, year, reviewText, rating, course);
+        var review = new Review(name, term, year, reviewText, rating, course);
         this.state.postReview(review);
     }
 

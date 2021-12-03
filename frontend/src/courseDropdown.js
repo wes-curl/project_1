@@ -9,7 +9,6 @@ function CourseDropdown(props){
     
     return(
         <select name="course" className={styles.courseDropdown}>
-            <option key="default">Course</option>
             {props.courses.map(toOption)}
         </select>
     );
