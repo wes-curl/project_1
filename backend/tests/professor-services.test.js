@@ -34,6 +34,18 @@ beforeEach(async () => {
   let dummyUser = {
     name: "Bruno da Silva",
     dept: "CSC",
+    reviews: [
+      {
+        course: "307",
+        rating: "5",
+        comment: "great",
+      },
+      {
+        course: "308",
+        rating: "4",
+        comment: "good",
+      },
+    ],
   };
   let result = new professorModel(dummyUser);
   await result.save();
@@ -120,4 +132,105 @@ test("Fetch professors by dept", async () => {
   expect(professors).toBeDefined();
   expect(professors.length).toBeGreaterThan(0);
   professors.forEach((professor) => expect(professor.dept).toBe(dept));
+});
+
+test("Add Review", async () => {
+  let result = await professorServices.addReview(
+    "Bruno da Silva",
+    "csc307",
+    5,
+    "fall",
+    2021,
+    "love the prof!"
+  );
+
+  expect(result).toBeDefined();
+  expect(result.name).toBe("Bruno da Silva");
+  expect(result.courses).toContain("csc307");
+  expect(result.reviews).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        course: "csc307",
+        rating: 5,
+        term: "fall",
+        year: 2021,
+        comment: "love the prof!",
+        upvotes: 0,
+        downvotes: 0,
+      }),
+    ])
+  );
+});
+
+test("Test upvoting a review", async () => {
+  let professor = await professorServices.addReview(
+    "Bruno da Silva",
+    "csc307",
+    5,
+    "fall",
+    2021,
+    "love the prof!"
+  );
+
+  let result = await professorServices.vote(
+    professor._id,
+    professor.reviews[professor.reviews.length - 1]._id,
+    true
+  );
+
+  expect(result).toBeTruthy();
+});
+
+test("Test downvoting a review", async () => {
+  let professor = await professorServices.addReview(
+    "Bruno da Silva",
+    "csc307",
+    5,
+    "fall",
+    2021,
+    "love the prof!"
+  );
+
+  let result = await professorServices.vote(
+    professor._id,
+    professor.reviews[professor.reviews.length - 1]._id,
+    false
+  );
+
+  expect(result).toBeTruthy();
+});
+
+test("Test voting on a non existent review", async () => {
+  let professor = await professorServices.findProfessor("Bruno da Silva");
+
+  let result = await professorServices.vote(
+    professor[0]._id,
+    "012345678912",
+    false
+  );
+
+  expect(result).toBeFalsy();
+});
+
+test("Fetch ratings by professor", async () => {
+  const expectedResult1 = {
+    course: "307",
+    rating: 5,
+    comment: "great",
+  };
+  const expectedResult2 = {
+    course: "308",
+    rating: 4,
+    comment: "good",
+  };
+
+  const professorName = "Bruno da Silva";
+  const reviewsFound = await professorServices.getAllReviews(professorName);
+  expect(reviewsFound.length).toBe(2);
+  expect(reviewsFound).toEqual(
+    expect.arrayContaining([expect.objectContaining(expectedResult1)])
+  );
+  expect(reviewsFound).toEqual(
+    expect.arrayContaining([expect.objectContaining(expectedResult2)])
+  );
 });

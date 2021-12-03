@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 
-require('./database/connection')    // connection to database
+require("./database/connection"); // connection to database
 
 const app = express();
 
@@ -15,6 +15,10 @@ const professorEndpoint = require("./api/professor");
 
 app.use("/api/course", courseEndpoint);
 app.use("/api/professor", professorEndpoint);
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");

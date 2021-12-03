@@ -56,4 +56,28 @@ app.post("/", async (req, res) => {
   res.status(202).end(); // Professor already exists in DB
 });
 
+app.post("/vote", async (req, res) => {
+  const professorID = req.body.professorID;
+  const reviewID = req.body.reviewID;
+  const upvote = req.body.upvote;
+
+  const result = await professorServices.vote(professorID, reviewID, upvote);
+
+  if (result === false) {
+    res.status(400).end();
+  } else {
+    res.status(200).end();
+  }
+});
+
+app.get("reviews/:professor", async (req, res) => {
+  const professor = req.params["professor"];
+  const result = await professorServices.getAllReviews(professor);
+  if (result === undefined || result === null)
+    res.status(404).send("Resource not found.");
+  else {
+    res.send({ reviews_list: result });
+  }
+});
+
 module.exports = app;
