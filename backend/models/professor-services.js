@@ -25,6 +25,7 @@ async function addProfessor(professor) {
     "Professor",
     ProfessorSchema
   );
+  console.log(professor);
   try {
     const professorToAdd = new professorModel(professor);
     const savedProfessor = await professorToAdd.save();

@@ -8,16 +8,16 @@ class AddProfessorForm extends React.Component{
         super(props);
 
         this.state = {
-            addProfessor: props.AddProf
+            addProfessor: props.addProfessor
         }
     }
 
     addProfessorEvent(event){
+        event.preventDefault();
         var name = event.target.name.value;
         var dept = event.target.dept.value;
-        var professor = new Professor(name, dept, true)
-
-        this.addProfessor(professor);
+        var professor = new Professor(name, dept, true);
+        this.state.addProfessor(professor);
     }
 
     render(){

@@ -6,14 +6,6 @@ class Review{
         this.comment = comment;
         this.rating = rating;
         this.course = course;
-        /*
-        const name = req.body.name;
-        const course = req.body.course;
-        const rating = req.body.rating;
-        const term = req.body.term;
-        const year = req.body.year;
-        const comment = req.body.comment;
-        */
     }
 }
 

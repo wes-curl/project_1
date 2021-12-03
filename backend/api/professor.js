@@ -41,7 +41,7 @@ app.post("/review", async (req, res) => {
 app.post("/", async (req, res) => {
   const professor = req.body;
   professor.active = true;
-
+  
   const existingProfessor = await professorServices.findProfessor(
     professor.name,
     professor.dept

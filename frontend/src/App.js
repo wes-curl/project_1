@@ -41,17 +41,16 @@ function App(props){
 
       
    function postAProfessor(professor){
-      console.log("posting prof")
-      axios.post("http://localhost:5001/api/professor/professor", professor).then(
+      axios.post("http://localhost:5001/api/professor", professor).then(
          (response) => {
-            console.log(response)
+            console.log(response);
          }
-      ) 
+      );
    }
 
    async function getProfessorObj(name){
       var ret_value = "error"
-      await axios.get("http://localhost:5001/api/professor", { params: { name: name } }).then(
+      await axios.get("http://localhost:5001/api/professor/", { params: { name: name } }).then(
          (response) => {
             const prof_lst = response.data
             for (let i = 0; i < prof_lst.length; i++) {
@@ -115,7 +114,7 @@ function App(props){
                   </Route>
 
                   <Route path='/list'>
-                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors} AddProf={postAProfessor}/>
+                     <ProfessorList searchBy={searchBy} searchingWith={searchWith} onClick={handleListClick} profs={searchedProfessors} addProfessor={postAProfessor}/>
                   </Route>
                            
                   <Route path='/professor'>
