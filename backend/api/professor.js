@@ -41,7 +41,8 @@ app.post("/review", async (req, res) => {
 app.post("/", async (req, res) => {
   const professor = req.body;
   professor.active = true;
-  professor.numRatings = 0;
+  professor.numRating = 0;
+  professor.avgRating = 0;
 
   const existingProfessor = await professorServices.findProfessor(
     professor.name,
