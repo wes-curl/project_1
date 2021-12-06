@@ -48,7 +48,6 @@ app.post("/", async (req, res) => {
     professor.name,
     professor.dept
   );
-  console.log(existingProfessor);
   if (
     existingProfessor != undefined &&
     existingProfessor != null &&

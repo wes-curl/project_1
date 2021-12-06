@@ -12,9 +12,9 @@ function App(props){
    const [professor, getProfessor] = useState(null);
    const [searchBy, getSearchBy] = useState("");
    const [searchWith, getSearchWith] = useState("");
+   const [forceRefresh, getForceRefresh] = useState(false);
 
    function getProfessorsByCourse(course){
-      console.log(course);
       axios.get("http://localhost:5001/api/course/" + course).then(
          (response) => {
             const names = response.data.course_list;
@@ -34,7 +34,7 @@ function App(props){
    function postAReview(review){
       axios.post("http://localhost:5001/api/professor/review", review).then(
          (response) => {
-            console.log(response)
+            getForceRefresh(!forceRefresh);
          }
       ) 
    }
@@ -43,7 +43,7 @@ function App(props){
    function postAProfessor(professor){
       axios.post("http://localhost:5001/api/professor", professor).then(
          (response) => {
-            console.log(response);
+            getForceRefresh(!forceRefresh);
          }
       );
    }
@@ -90,7 +90,7 @@ function App(props){
       getSearchBy(URL[URL.length - 2]);
       getSearchWith(URL[URL.length - 1]);
 
-   }, []);
+   }, [forceRefresh]);
 
    function handlePO(PO){
       if(PO !== "error"){
