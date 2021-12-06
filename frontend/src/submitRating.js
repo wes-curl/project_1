@@ -3,7 +3,7 @@ import QuarterDropdown from './quarterDropdown';
 import YearEntry from './yearEntry';
 import RatingEntry from './ratingEntry';
 import ReviewEntry from './reviewEntry';
-import CourseEntry from './courseEntry';
+import CourseEntry from './courseDropdown';
 import SubmitButton from './submitButton';
 import Review from './Review';
 
