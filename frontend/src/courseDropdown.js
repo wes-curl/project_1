@@ -1,3 +1,4 @@
+import react from 'react';
 import React from 'react';
 
 import styles from "./review.module.css";
@@ -8,10 +9,14 @@ function CourseEntry(props){
     };
     
     return(
-        <select name="course" className={styles.courseDropdown}>
-            <option key="default">Course</option>
-            {props.courses.map(toOption)}
-        </select>
+        <React.Fragment>
+            <input list="courses" name="course" className={styles.courseDropdown} placeholder="Course" required pattern="[a-z]{0,3}[0-9]{0,3}" 
+                title="Three lowercase letters followed by three numbers, for example: abc123"/>
+
+            <datalist id="courses">
+                {props.courses.map(toOption)}
+            </datalist>
+        </React.Fragment>
     );
 }
 
