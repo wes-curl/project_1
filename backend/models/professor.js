@@ -7,7 +7,7 @@ const ProfessorSchema = new mongoose.Schema(
     courses: [String],
     active: Boolean,
     avgRating: Number,
-    numRatings: Number,
+    numRating: Number,
     reviews: [
       {
         course: String,
