@@ -34,6 +34,8 @@ beforeEach(async () => {
   let dummyUser = {
     name: "Bruno da Silva",
     dept: "CSC",
+    avgRating: 4.5,
+    numRating: 2,
     reviews: [
       {
         course: "307",
@@ -53,6 +55,8 @@ beforeEach(async () => {
   dummyUser = {
     name: "John Oliver",
     dept: "CPE",
+    avgRating: 0,
+    numRating: 0,
   };
   result = new professorModel(dummyUser);
   await result.save();
@@ -60,6 +64,8 @@ beforeEach(async () => {
   dummyUser = {
     name: "John Oliver",
     dept: "CPE Professor",
+    avgRating: 0,
+    numRating: 0,
   };
   result = new professorModel(dummyUser);
   await result.save();
@@ -67,6 +73,8 @@ beforeEach(async () => {
   dummyUser = {
     name: "Hugh Smith",
     dept: "CPE",
+    avgRating: 0,
+    numRating: 0,
   };
   result = new professorModel(dummyUser);
   await result.save();
@@ -74,6 +82,8 @@ beforeEach(async () => {
   dummyUser = {
     name: "Bryan Mealy",
     dept: "CPE",
+    avgRating: 0,
+    numRating: 0,
   };
   result = new professorModel(dummyUser);
   await result.save();
@@ -233,4 +243,34 @@ test("Fetch ratings by professor", async () => {
   expect(reviewsFound).toEqual(
     expect.arrayContaining([expect.objectContaining(expectedResult2)])
   );
+});
+
+test("Updating Professor Rating Stats", async () => {
+  let result = await professorServices.addReview(
+    "Bruno da Silva",
+    "csc307",
+    5,
+    "fall",
+    2021,
+    "love the prof!"
+  );
+
+  expect(result).toBeDefined();
+  expect(result.numRating).toBe(3);
+  expect(result.avgRating).toBe((5 + 4 + 5) / 3);
+});
+
+test("Reviewing a professor for the first time", async () => {
+  let result = await professorServices.addReview(
+    "Bryan Mealy",
+    "cpe133",
+    3,
+    "fall",
+    2020,
+    "very laid back and helpful"
+  );
+
+  expect(result).toBeDefined();
+  expect(result.numRating).toBe(1);
+  expect(result.avgRating).toBe(3);
 });
