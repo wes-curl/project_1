@@ -28,7 +28,7 @@ app.post("/review", async (req, res) => {
   const professors = await courseServices.findProfByCourse(course);
   if (professors === null) {
     courseServices.addCourse(course, name);
-  } else if (professors.filter((prof) => prof == name) == []) {
+  } else if (!professors.includes(name)) {
     courseServices.addProfessor(course, name);
   }
 
