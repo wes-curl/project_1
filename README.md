@@ -7,7 +7,6 @@ CSC 307 project 1 repository. A professor ratings website.
 This website allow users to rate professors at Cal Poly.  The user of the website may either search for a proffesor by various parameters or add a new professor.  The database of professors include various information about the professors.  The searchable parameters based on this stored information are:
 - Class
 - Professor name
-- Department
 
 The professor ratings are based on a 5 star rating system.  A user enters a score from 1 to 5 (1 being poor, 5 being great) based on how good of a job the professor did.  The score is then added to the database and an average rating based on all on all previous ratings is displayed.  There is also a professor avatar feature.  Pictures of professesors that have online avatars on the global avatar service Gravatar are displayed as profile pictures.
 
