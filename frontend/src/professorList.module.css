@@ -1,0 +1,119 @@
+body {
+    width: 1440px;
+    height: 1024px;
+    background: #FFFFFF;
+}
+
+.headerData{
+    width: 1250px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.searchBy{
+    font-size: 45px;
+    line-height: 50px;
+}
+
+.numberFound{
+    font-size: 15px;
+}
+
+.form{
+    
+}
+
+.professorListElement{
+    width: 1250px;
+    margin: auto;
+    display: flex;
+}
+
+.professorName{
+    width: 350px;
+    height: 75px;
+    line-height: 75px;
+    text-align: left;
+    font-size: 25px;
+    
+    vertical-align: middle;
+}
+
+.linkButton{
+    width: 150px;
+    height: 60px;
+    font-size: 25px;
+    
+    vertical-align: middle;
+    border: 0px;
+
+    color: #292929;
+    background-color: #888888;
+    border-radius: 5px;
+    transition: background-color 0.5s;
+}
+
+.linkButton:hover{
+    background-color: #2e492b;
+}
+
+.link{
+    width: 150px;
+    height: 60px;
+    
+    align-self: center;
+
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.rating{
+    display: inline-block;
+    width: 650px;
+    height: 75px;
+    
+    vertical-align: middle;
+}
+
+.ratingValue{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 75px;
+    width: 40px;
+    font-size: 25px;
+}
+
+.stars{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.star{
+    height: 60px;
+    width: 60px;
+}
+
+.numberOfRatings{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 75px;
+    width: 180px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.hr{
+    width: 1250px;
+}
+
+.AddProfessorForm{
+    width: 1250px;
+    margin-left: 95px;
+}
+
+.department{
+
+}
+.addProfessorButton{
+
+}

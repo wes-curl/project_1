@@ -1,36 +1,29 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const cors = require("cors");
+
+require("./database/connection"); // connection to database
+
 const app = express();
-const uri =
-  "mongodb+srv://dev:csc307project@cluster0.g9h5a.mongodb.net/Rate-My-Professor?retryWrites=true&w=majority";
-const port = 5000;
 
+const port = 5001;
+
+app.use(cors());
 app.use(express.json());
-mongoose
-  .connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .catch((err) => {
-    console.log(`mongoose error while connecting: ${err}`);
-  });
 
-mongoose.connection.on("connected", () => {
-  console.log(`mongoose connection open to ${uri}`);
-});
+const courseEndpoint = require("./api/course");
+const professorEndpoint = require("./api/professor");
 
-mongoose.connection.on("error", (err) => {
-  console.log(`mongoose connection error: ${err}`);
-});
-
-mongoose.connection.on("disconnected", () => {
-  console.log("disconnected from mongoose");
-});
+app.use("/api/course", courseEndpoint);
+app.use("/api/professor", professorEndpoint);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(port, "localhost", () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+app.listen(process.env.PORT || port, () => {
+  console.log("REST API is listening.");
+});
+
+app.get("/", (req, res) => {
+  res.send("HIOTWENPTGINWEO");
 });

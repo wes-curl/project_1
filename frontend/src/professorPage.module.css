@@ -1,0 +1,88 @@
+.courseTermYear{
+    background-color: #2A573C;
+    width: 400px;
+    height: 55px;
+    display: inline-block;
+    font-size: 35px;
+    line-height: 55px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.rating{
+    background-color: #F8C84D;
+    width: 90px;
+    display: inline-block;
+    text-align: center;
+    height: 55px;
+    font-size: 35px;
+    line-height: 55px;
+    Position:absolute;
+    left: 570px;
+}
+
+.reviewText{
+    font-size: 30px;
+}
+
+.reviewContainer{
+}
+
+.all{
+    width: 1250px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+
+.professorImage{
+    outline: 3px solid black;
+    height: 400px;
+    width: 350px;
+    object-fit: cover;
+}
+
+.teachList{
+    display: inline-block;
+    height: 72px;
+    width: 500px;
+    text-align: left;
+}
+.teaches{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.professorImageContainer{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.professorName{
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    width: fit-content;
+    line-height: 50px;
+    height: 50px;
+    text-decoration: underline;
+}
+
+.professorRating{
+}   
+
+.professorCourses{
+    font-family: 'Roboto', sans-serif;
+    width: fit-content;
+    height: 72px;
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.dataHeader{
+    display: inline-block;
+    vertical-align: top;
+    height: 404px;
+    position: relative;
+}

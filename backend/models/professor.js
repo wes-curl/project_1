@@ -1,24 +1,29 @@
 const mongoose = require("mongoose");
 
-const professorSchema = new Mongoose.Schema(
+const ProfessorSchema = new mongoose.Schema(
   {
     name: String,
-    classes: [
+    dept: String,
+    courses: [String],
+    active: Boolean,
+    avgRating: Number,
+    numRating: Number,
+    reviews: [
       {
-        class: String,
-        reviews: [
-          {
-            rating: Number,
-            comment: String,
-          },
-        ],
+        course: String,
+        rating: Number,
+        term: String,
+        year: Number,
+        comment: String,
+        upvotes: Number,
+        downvotes: Number,
       },
     ],
-    rating: Number,
-    count: Number,
   },
-  { collection: TBD }
+  { collection: "professors" }
 );
 
-const prefessor = mongoose.model(TBD, professorSchema);
-module.exports = professor;
+//will be adding picture later
+
+//const professor = mongoose.model("Professors", professorSchema)
+module.exports = ProfessorSchema;
