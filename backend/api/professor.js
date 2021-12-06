@@ -11,7 +11,7 @@ app.get("/", async (req, res) => {
     professorName,
     professorDept
   );
-  
+
   res.send(professors);
 });
 
@@ -48,8 +48,12 @@ app.post("/", async (req, res) => {
     professor.name,
     professor.dept
   );
-    console.log(existingProfessor);
-  if (existingProfessor != undefined && existingProfessor != null && existingProfessor != []) {
+  console.log(existingProfessor);
+  if (
+    existingProfessor != undefined &&
+    existingProfessor != null &&
+    existingProfessor != []
+  ) {
     const newProfessor = await professorServices.addProfessor(professor);
 
     if (newProfessor) res.status(201).send(newProfessor);

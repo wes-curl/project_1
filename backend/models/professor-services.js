@@ -43,7 +43,7 @@ async function addReview(name, course, rating, term, year, comment) {
       ProfessorSchema
     );
     const filter = { name: name };
-    const professor = await professorModel.findOne({name: name});
+    const professor = await professorModel.findOne({ name: name });
     const newCalcs = await professorRatingUpdate(professor, parseInt(rating));
     const update = {
       avgRating: newCalcs.newAvg,
@@ -75,17 +75,16 @@ async function addReview(name, course, rating, term, year, comment) {
 
 // input - prof object, new rating integer | {0 <= x <= 5}
 async function professorRatingUpdate(prof, newRating) {
-  
   // If professor has no previous reviews
   // update review count to 1 and set average rating to new review rating
   if (prof.numRating == 0) {
-    return { newNum: 1 , newAvg: newRating };
+    return { newNum: 1, newAvg: newRating };
   }
 
   const newNum = prof.numRating + 1;
   const newAvg = (prof.avgRating * prof.numRating + newRating) / newNum;
 
-  return {newNum, newAvg};
+  return { newNum, newAvg };
 }
 
 async function vote(professorID, reviewID, upvote) {
