@@ -3,7 +3,7 @@ import QuarterDropdown from './quarterDropdown';
 import YearEntry from './yearEntry';
 import RatingEntry from './ratingEntry';
 import ReviewEntry from './reviewEntry';
-import CourseDropdown from './courseDropdown';
+import CourseEntry from './courseEntry';
 import SubmitButton from './submitButton';
 import Review from './Review';
 
@@ -26,7 +26,7 @@ class SubmitRating extends React.Component{
         var year = event.target.year.value;
         var reviewText = event.target.reviewText.value;
         var rating = event.target.rating.value;
-        var course = event.target.course.value;
+        var course = event.target.course.value.replace(/\s+/g, "").toLowerCase();
         var review = new Review(name, term, year, reviewText, rating, course);
         this.state.postReview(review);
     }
@@ -41,7 +41,7 @@ class SubmitRating extends React.Component{
                 <div className={styles.sideBy}>
                     <ReviewEntry />
                     <div className={styles.drops}>
-                        <CourseDropdown courses={this.state.professor.courses}/>
+                        <CourseEntry courses={this.state.professor.courses}/>
                         <QuarterDropdown />
                         <YearEntry />
                     </div>
